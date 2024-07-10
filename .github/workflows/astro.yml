@@ -58,6 +58,11 @@ jobs:
           cache: ${{ steps.detect-package-manager.outputs.manager }}
           cache-dependency-path: ${{ env.BUILD_PATH }}/${{ steps.detect-package-manager.outputs.lockfile }}
 
+      - name: Install pnpm
+        if: steps.detect-package-manager.outputs.manager == 'pnpm'
+        run: |
+          npm install -g pnpm
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
