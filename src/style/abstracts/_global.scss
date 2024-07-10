@@ -1,0 +1,11 @@
+@forward "@fortawesome/fontawesome-free/css/all.min.css";
+@import url("https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+$font-family: "Quantico", Arial, Helvetica, system-ui;
+
+* {
+  font-family: $font-family;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}

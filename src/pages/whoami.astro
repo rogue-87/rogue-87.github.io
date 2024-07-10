@@ -1,0 +1,156 @@
+---
+import Layout from "../layouts/Layout.astro";
+import biker from "../assets/images/Biker.png";
+---
+
+<Layout title="whoami">
+  <div class="wrapper">
+    <main>
+      <h2>Whoami?</h2>
+      <p>just a silly guy with silly dreams</p>
+      <p>
+        But in all seriousness, My name is Ali. I'm a guy who happens to know a
+        thing or two about computers. Currently, I'm learning front-end web
+        development. My first Language was Java, though I didn't do much with
+        it, mainly because that was what my university offered. Later on, I
+        learned JavaScript, and then Lua(because neovim, of course). I kinda
+        lost track of where I was when I fell into the Linux rabbit hole, but
+        now I'm back on track and resuming my web develpoment journey.
+      </p>
+
+      <h2>What do you do?</h2>
+      <p>I'm currently a student at Benghazi University.</p>
+
+      <h2>Hobbies?</h2>
+      <p>
+        There ain't much. I do gaming every now and then. I used to be
+        interested in pixel art and am trying to rekindle that rusty old hobby
+        of mine.
+      </p>
+
+      <div>
+        <p>Here's a pic of my last piece of art from a couple of years ago:</p>
+        <div class="biker-img">
+          <img src={biker.src} alt="biker pixel" />
+        </div>
+      </div>
+
+      <h2>Goals?</h2>
+      <p>
+        As I mentioned before, I'm learning web development, and I feel like I'm
+        at a point where I can pick a framework now. I think I spent enough time
+        muddling with the html,css and js.
+      </p>
+
+      <h2>Contact?</h2>
+      <ul>
+        <li><a href="https://matrix.to/#/@rogue87:matrix.org">Matrix</a></li>
+        <li><a href="mailto:rogue87.dev@gmail.com">Mail</a></li>
+      </ul>
+    </main>
+  </div>
+</Layout>
+
+<style lang="scss" is:global>
+  @use "../style/abstracts/" as *;
+
+  body {
+    margin: 0;
+    color: var(--fg-clr-1);
+    background-color: var(--bg-clr-1);
+    background-image: url("../assets/images/fog.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    image-rendering: pixelated;
+  }
+
+  h2 {
+    position: relative;
+    text-align: center;
+    margin-bottom: 2rem;
+    &:nth-child(1) {
+      margin-top: 0;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      background-color: var(--border-clr-1);
+      height: 2px;
+      width: 100%;
+      inset: 120% 0%;
+    }
+  }
+
+  a {
+    font-size: 1.25em;
+    color: var(--fg-clr-2);
+  }
+
+  p {
+    font-size: 1.125em;
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 3em 0;
+  }
+
+  main {
+    width: 50em;
+    padding: 1.2rem;
+    border: 2px solid var(--border-clr-1);
+    border-radius: 5px;
+    background-color: var(--bg-clr-1);
+
+    ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2em;
+      li {
+        list-style: none;
+        width: fit-content;
+      }
+    }
+  }
+
+  .biker-img {
+    text-align: center;
+
+    img {
+      border-radius: 1em;
+      width: 50%;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-clr-1: #0d1117;
+      --fg-clr-1: #c9d1d9;
+      --fg-clr-2: #75d97e;
+      --border-clr-1: #6e6e6e;
+    }
+    body {
+      background-image: url("../assets/images/moon.png");
+    }
+  }
+
+  @media (20em <= width <= 30em) and (orientation: portrait) {
+    h2,
+    p {
+      font-size: unset;
+    }
+
+    a {
+      font-size: 1rem;
+    }
+
+    .wrapper {
+      margin: 0.85em;
+    }
+  }
+</style>

@@ -1,0 +1,19 @@
+---
+interface Props {
+  state: string;
+  icon: string;
+}
+
+const { state = "Fetching", icon = "fa-solid fa-spinner fa-spin-pulse" } =
+  Astro.props;
+---
+
+<div class="status" id="status">
+  <span> {state} </span>
+  <i class={icon}></i>
+</div>
+
+<style lang="scss"></style>
+
+<script>
+</script>
