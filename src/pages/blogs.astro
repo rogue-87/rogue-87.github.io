@@ -1,15 +1,30 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import BlogPost from "../components/BlogPost.astro";
-const allPosts = await Astro.glob("./posts/blogs/*.md");
+import "../style/blogs.scss";
+
+const posts = await Astro.glob("./posts/blogs/*.md");
 ---
 
 <Layout title="Blogs">
-  <ul>
-    {
-      allPosts.map((post) => (
-        <BlogPost url={post.url} title={post.frontmatter.title} />
-      ))
-    }
-  </ul>
+  <main>
+    <h1>Blogs</h1>
+    <div class="blogs">
+      <h3 class="tags">
+        <span><i class="fa-solid fa-tags"></i></span>
+        <a href="/den/tags">Filter by tags</a>
+      </h3>
+      <ul>
+        {
+          posts.map((post) => (
+            <BlogPost
+              url={post.url}
+              title={post.frontmatter.title}
+              date={post.frontmatter.date}
+            />
+          ))
+        }
+      </ul>
+    </div>
+  </main>
 </Layout>

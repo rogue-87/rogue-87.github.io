@@ -1,0 +1,24 @@
+@use "../style/abstracts/" as *;
+
+ul {
+  padding: inherit;
+  margin: initial;
+}
+
+h3 {
+  text-align: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  > div {
+    padding: 1rem;
+    border-radius: 0.3rem;
+    width: 50rem;
+    background-color: var(--bg-clr-1);
+    border: 2px solid var(--border-clr-1);
+  }
+}

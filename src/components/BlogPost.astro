@@ -2,9 +2,28 @@
 interface Props {
   url: string;
   title: string;
+  date: string;
 }
 
-const { url, title } = Astro.props;
+const { url, title, date } = Astro.props;
 ---
 
-<li><a href={url}>{title}</a></li>
+<li>
+  <div><a href={url}>{title}</a></div>
+  <div>Posted on {date}</div>
+</li>
+
+<style lang="scss">
+  li {
+    width: 100%;
+    list-style-type: disc;
+    div {
+      font-size: 1.2rem;
+      width: 100%;
+      &:nth-child(2){
+        display: flex;
+        justify-content: end;
+      }
+    }
+  }
+</style>

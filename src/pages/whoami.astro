@@ -1,12 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import biker from "../assets/images/Biker.png";
+
+import "../style/whoami.scss"
 ---
 
 <Layout title="whoami">
   <div class="wrapper">
+    <h1>Whoami?</h1>
     <main>
-      <h2>Whoami?</h2>
       <p>just a silly guy with silly dreams</p>
       <p>
         But in all seriousness, My name is Ali. I'm a guy who happens to know a
@@ -50,107 +52,3 @@ import biker from "../assets/images/Biker.png";
     </main>
   </div>
 </Layout>
-
-<style lang="scss" is:global>
-  @use "../style/abstracts/" as *;
-
-  body {
-    margin: 0;
-    color: var(--fg-clr-1);
-    background-color: var(--bg-clr-1);
-    background-image: url("../assets/images/fog.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    image-rendering: pixelated;
-  }
-
-  h2 {
-    position: relative;
-    text-align: center;
-    margin-bottom: 2rem;
-    &:nth-child(1) {
-      margin-top: 0;
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      background-color: var(--border-clr-1);
-      height: 2px;
-      width: 100%;
-      inset: 120% 0%;
-    }
-  }
-
-  a {
-    font-size: 1.25em;
-    color: var(--fg-clr-2);
-  }
-
-  p {
-    font-size: 1.125em;
-  }
-
-  .wrapper {
-    display: flex;
-    justify-content: center;
-    margin: 3em 0;
-  }
-
-  main {
-    width: 50em;
-    padding: 1.2rem;
-    border: 2px solid var(--border-clr-1);
-    border-radius: 5px;
-    background-color: var(--bg-clr-1);
-
-    ul {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 2em;
-      li {
-        list-style: none;
-        width: fit-content;
-      }
-    }
-  }
-
-  .biker-img {
-    text-align: center;
-
-    img {
-      border-radius: 1em;
-      width: 50%;
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg-clr-1: #0d1117;
-      --fg-clr-1: #c9d1d9;
-      --fg-clr-2: #75d97e;
-      --border-clr-1: #6e6e6e;
-    }
-    body {
-      background-image: url("../assets/images/moon.png");
-    }
-  }
-
-  @media (20em <= width <= 30em) and (orientation: portrait) {
-    h2,
-    p {
-      font-size: unset;
-    }
-
-    a {
-      font-size: 1rem;
-    }
-
-    .wrapper {
-      margin: 0.85em;
-    }
-  }
-</style>

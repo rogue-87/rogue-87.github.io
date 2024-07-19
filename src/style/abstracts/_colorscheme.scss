@@ -4,3 +4,31 @@
   --fg-clr-2: #077744;
   --border-clr-1: #6e6e6e;
 }
+
+body {
+  color: var(--fg-clr-1);
+  background-color: var(--bg-clr-1);
+  background-image: url("../assets/images/bkFog.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  image-rendering: pixelated;
+}
+
+a {
+  color: var(--fg-clr-2);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-clr-1: #0d1117;
+    --fg-clr-1: #c9d1d9;
+    --fg-clr-2: #75d97e;
+    --border-clr-1: #6e6e6e;
+  }
+  body {
+    background-image: url("../assets/images/bkMoon.png");
+    background-position: center 30%;
+  }
+}

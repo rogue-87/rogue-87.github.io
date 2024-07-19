@@ -1,41 +1,88 @@
 ---
-import Layout from "./Layout.astro";
+interface Props {
+  frontmatter: {
+    title: string;
+    desc: string;
+    author: string;
+    tags: Array<string>;
+    date: string;
+  };
+}
+import favicon from "../assets/icons/quote.png";
 const { frontmatter } = Astro.props;
 ---
 
-<Layout title={frontmatter.title}>
-  <p>{frontmatter.pubDate.toString().slice(0, 10)}</p>
-  <p><em>{frontmatter.description}</em></p>
-  <p>Written by: {frontmatter.author}</p>
-  <!-- <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} /> -->
-  <div class="tags">
-    {
-      frontmatter.tags.map((tag) => (
-        <p class="tag">
-          <a href={`/tags/${tag}`}>{tag}</a>
-        </p>
-      ))
-    }
-  </div>
-  <slot />
-</Layout>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href={favicon.src} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{frontmatter.title}</title>
+  </head>
+  <body class="md-post">
+    <h1>{frontmatter.title}</h1>
+    <div class="md-content">
+      <div class="tags">
+        {
+          frontmatter.tags.map((tag) => (
+            <p class="tag">
+              <a href={`/den/tags/${tag}`}>{tag}</a>
+            </p>
+          ))
+        }
+      </div>
+      <h2><i class="fa-solid fa-feather"></i> Written by {frontmatter.author}</h2>
+      <h2><i class="fa-solid fa-calendar-days"></i> Posted on {frontmatter.date.toString()}.</h2>
+      <hr />
+      <slot />
+    </div>
+  </body>
+</html>
 
-<style>
-  a {
-    color: #00539f;
-  }
+<style lang="scss">
+  @use "../style/abstracts/" as *;
 
-  .tags {
+  .md-post {
+    font-size: 1rem;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
-  .tag {
-    margin: 0.25em;
-    border: dotted 1px #a1a1a1;
-    border-radius: 0.5em;
-    padding: 0.5em 1em;
-    font-size: 1.15em;
-    background-color: #f8fcfd;
+  .md-content {
+
+    padding: 1rem;
+    width: 75%;
+    border: 2px solid var(--border-clr-1);
+    border-radius: 5px;
+    background-color: var(--bg-clr-1);
+
+    h2{
+      margin: 0;
+    }
+
+    & :global(pre) {
+      font-family: Arial, Helvetica, sans-serif;
+      padding: 1rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .tag {
+      margin: 0.25em;
+      border: solid 2px #a1a1a1;
+      border-radius: 0.5em;
+      background-color: #155615;
+      padding: 0.5em 1em;
+      font-size: 1.15em;
+    }
   }
 </style>
