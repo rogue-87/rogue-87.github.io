@@ -1,21 +1,32 @@
 ---
 interface Props {
   title: string;
+  desc: string;
+  author: string;
+  keywords: Array<string>;
 }
 
 import favicon from "../assets/icons/quote.png";
+import gideon from "../assets/images/gideon-graves-scott-pilgrim.png";
 
-const { title } = Astro.props;
+const { title = "Rogue's Den", desc = "my smol little den", author = "Rogue87", keywords = [] } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/png" href={favicon.src} />
-    <meta name="generator" content={Astro.generator} />
+
+    <meta property="author" content={author} />
+    <meta property="description" content={desc} />
+    <meta name="keywords" content={keywords.toString()}>
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:image" content={gideon.src} />
+    <meta property="og:url" content="https://rogue-87.github.io/den/" />
     <title>{title}</title>
   </head>
   <body>
