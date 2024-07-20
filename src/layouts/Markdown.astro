@@ -34,7 +34,7 @@ const { frontmatter } = Astro.props;
           ))
         }
       </div>
-      <h2><i class="fa-solid fa-feather"></i> Written by {frontmatter.author}</h2>
+      <h2><i class="fa-solid fa-feather"></i> Written by {frontmatter.author}.</h2>
       <h2><i class="fa-solid fa-calendar-days"></i> Posted on {frontmatter.date.toString()}.</h2>
       <hr />
       <slot />
@@ -54,7 +54,7 @@ const { frontmatter } = Astro.props;
   }
 
   .md-content {
-
+    margin-bottom: 2.5rem;
     padding: 1rem;
     width: 75%;
     border: 2px solid var(--border-clr-1);

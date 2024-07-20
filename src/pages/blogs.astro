@@ -22,6 +22,7 @@ const posts = await Astro.glob("./posts/blogs/*.md");
               title={post.frontmatter.title}
               date={post.frontmatter.date}
             />
+            <hr>
           ))
         }
       </ul>
