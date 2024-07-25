@@ -1,11 +1,11 @@
-@use "../style/abstracts/" as *;
+@use "./abstracts" as *;
 
 ul {
   padding: inherit;
   margin: initial;
 }
 
-h1,h3 {
+h1 {
   text-align: center;
 }
 

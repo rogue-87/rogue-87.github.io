@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import BlogPost from "../../components/BlogPost.astro";
+import "../../style/tag-index.scss";
 
 export async function getStaticPaths() {
   const allPosts: any = await Astro.glob("../posts/blogs/*.md");
@@ -25,16 +26,21 @@ const { posts } = Astro.props;
 ---
 
 <Layout title={tag}>
-  <p>Posts tagged with {tag}</p>
-  <ul>
-    {
-      posts.map((post: any) => (
-        <BlogPost
-          url={post.url}
-          title={post.frontmatter.title}
-          date={post.frontmatter.pubDate}
-        />
-      ))
-    }
-  </ul>
+  <h1>{tag}</h1>
+  <main>
+    <div>
+      <h2>Posts tagged with {tag}</h2>
+      <ul>
+        {
+          posts.map((post: any) => (
+            <BlogPost
+              url={post.url}
+              title={post.frontmatter.title}
+              date={post.frontmatter.date}
+            />
+          ))
+        }
+      </ul>
+    </div>
+  </main>
 </Layout>

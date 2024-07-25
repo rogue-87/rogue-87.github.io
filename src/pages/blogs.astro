@@ -7,8 +7,8 @@ const posts = await Astro.glob("./posts/blogs/*.md");
 ---
 
 <Layout title="Blogs">
+  <h1>Blogs</h1>
   <main>
-    <h1>Blogs</h1>
     <div class="blogs">
       <h3 class="tags">
         <span><i class="fa-solid fa-tags"></i></span>
@@ -22,7 +22,6 @@ const posts = await Astro.glob("./posts/blogs/*.md");
               title={post.frontmatter.title}
               date={post.frontmatter.date}
             />
-            <hr>
           ))
         }
       </ul>

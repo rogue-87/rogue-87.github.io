@@ -1,5 +1,9 @@
 @use "./abstracts/" as *;
 
+h1 {
+  text-align: center;
+}
+
 h2 {
   position: relative;
   text-align: center;
@@ -18,38 +22,29 @@ h2 {
   }
 }
 
-a {
-  font-size: 1.25em;
-  color: var(--fg-clr-2);
-}
-
-p {
-  font-size: 1.125em;
-}
-
-.wrapper {
+main {
   margin-bottom: 2.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
 
-main {
-  width: 50em;
-  padding: 1.2rem;
-  border: 2px solid var(--border-clr-1);
-  border-radius: 5px;
-  background-color: var(--bg-clr-1);
+  > div {
+    width: 50em;
+    padding: 1.2rem;
+    border: 2px solid var(--border-clr-1);
+    border-radius: 5px;
+    background-color: var(--bg-clr-1);
 
-  ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2em;
-    li {
-      list-style: none;
-      width: fit-content;
+    ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2em;
+      li {
+        list-style: none;
+        width: fit-content;
+      }
     }
   }
 }
@@ -64,16 +59,10 @@ main {
 }
 
 @media (20em <= width <= 30em) and (orientation: portrait) {
-  h2,
-  p {
-    font-size: unset;
-  }
-
-  a {
-    font-size: 1rem;
-  }
-
-  .wrapper {
-    margin: 0.85em;
+  main{
+    margin: 0 8px;
+    >div{
+      width: auto;
+    }
   }
 }
