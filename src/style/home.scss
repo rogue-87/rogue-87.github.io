@@ -144,32 +144,28 @@
 
     .song-album {
       display: flex;
+      justify-content: center;
       width: 142px;
       height: 142px;
       border: solid 2px gray;
       border-radius: 0.8rem;
-      overflow: hidden;
-      a {
-        img {
-          width: 100%;
-        }
-      }
+      background-image: url("../assets/images/no-song-playing.png");
+      background-size: contain;
     }
   }
 
   /* phones */
-
   // smol phones
   @media (20em <= width <= 30em) and (orientation: portrait) {
     .terminals {
-      margin: 0.5rem;
-      grid-template-columns: auto auto;
-      grid-template-rows: repeat(3, auto);
+      margin-bottom: 0.5rem;
+      grid-template-columns: 95dvw;
+      grid-template-rows: repeat(4, auto);
       grid-template-areas:
-        "status status"
-        "main main"
-        "nav nav"
-        "music-log music-log";
+        "status"
+        "main"
+        "nav"
+        "music-log";
     }
 
     .music-log {
@@ -178,9 +174,12 @@
       gap: 1rem;
       .song-info {
         display: flex;
+        flex-basis: 50%;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+      }
+      .song-album{
+        flex-basis: 42%;
       }
     }
   }

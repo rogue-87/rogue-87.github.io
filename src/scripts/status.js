@@ -70,39 +70,15 @@ function updateStatus(presence) {
 
 function updateCurrentSong(presence) {
   if (!presence.listening_to_spotify) {
-    document.getElementById("musicLog").innerHTML = `
-      <div class="song-info">
-        <div>
-          <i class="fa-solid fa-music"></i>
-          <div class="song">...</div>
-        </div>
-        <div>
-          <i class="fa-solid fa-user"></i>
-          <div class="artist">...</div>
-        </div>
-      </div>
-      <div class="song-album">
-        <img src="${idle.src}" alt="no-song" />
-      </div>
-    `;
+    document.getElementById("song").innerText = "...";
+    document.getElementById("artist").innerText = "...";
+    document.getElementById("songLink").setAttribute("href", "#")
+    document.getElementById("songAlbum").style.backgroundImage = `url(${idle.src})`;
   } else {
     let spotify = presence.spotify;
-    document.getElementById("musicLog").innerHTML = `
-      <div class="song-info">
-        <div>
-          <i class="fa-solid fa-music"></i>
-          <div class="song">${spotify.song}</div>
-        </div>
-        <div>
-          <i class="fa-solid fa-user"></i>
-          <div class="artist">${spotify.artist}</div>
-        </div>
-      </div>
-      <div class="song-album">
-        <a href="https://open.spotify.com/track/${spotify.track_id}">
-          <img src="${spotify.album_art_url}" alt="spotify album">
-        </a>
-      </div>
-    `;
+    document.getElementById("song").innerText = spotify.song;
+    document.getElementById("artist").innerText = spotify.artist.replaceAll(";",",")
+    document.getElementById("songLink").setAttribute("href", `https://open.spotify.com/track/${spotify.track_id}`)
+    document.getElementById("songAlbum").style.backgroundImage = `url(${spotify.album_art_url})`;
   }
 }
