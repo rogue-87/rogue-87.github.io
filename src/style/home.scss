@@ -1,185 +1,185 @@
-  @use "./abstracts/" as *;
+@use "./abstracts/" as *;
 
-  .logo {
-    text-align: center;
-    h1 {
-      transition: transform ease-in-out 0.5s;
-    }
+.logo {
+  text-align: center;
+  h1 {
+    transition: transform ease-in-out 0.5s;
   }
+}
 
-  .terminals {
-    display: grid;
-    justify-content: center;
-    gap: 16px;
+.terminals {
+  display: grid;
+  justify-content: center;
+  gap: 16px;
 
-    grid-template-rows: 3.3rem 17.5rem 16rem;
-    grid-template-columns: 45rem 12rem;
-    grid-template-areas:
-      "main status"
-      "main nav"
-      "main music-log";
+  grid-template-rows: 3.3rem 17.5rem 16rem;
+  grid-template-columns: 45rem 12rem;
+  grid-template-areas:
+    "main status"
+    "main nav"
+    "main music-log";
 
-    > * {
-      padding: 1rem;
-      border: 2px solid var(--border-clr-1);
-      border-radius: 5px;
+  > * {
+    padding: 1rem;
+    border: 2px solid var(--border-clr-1);
+    border-radius: 5px;
+    background-color: var(--bg-clr-1);
+    position: relative;
+    &::before {
       background-color: var(--bg-clr-1);
-      position: relative;
-      &::before {
-        background-color: var(--bg-clr-1);
-        border: 2px solid var(--border-clr-1);
-        border-radius: 1rem;
-        width: fit-content;
-        height: fit-content;
-        padding: 0 8px;
-        position: absolute;
-        inset: -0.8rem 10px;
-        content: "";
-      }
-    }
-
-    > *:nth-child(1) {
-      padding: 1rem;
-      grid-area: main;
-      &:before {
-        content: "Main";
-      }
-    }
-
-    > *:nth-child(2) {
-      grid-area: status;
-      &:before {
-        content: "Status";
-      }
-    }
-
-    > *:nth-child(3) {
-      grid-area: nav;
-      &:before {
-        content: "Navigate";
-      }
-    }
-
-    > *:nth-child(4) {
-      grid-area: music-log;
-      &:before {
-        content: "Currently Playing";
-      }
+      border: 2px solid var(--border-clr-1);
+      border-radius: 1rem;
+      width: fit-content;
+      height: fit-content;
+      padding: 0 8px;
+      position: absolute;
+      inset: -0.8rem 10px;
+      content: "";
     }
   }
 
-  main {
+  > *:nth-child(1) {
+    padding: 1rem;
+    grid-area: main;
+    &:before {
+      content: "Main";
+    }
+  }
+
+  > *:nth-child(2) {
+    grid-area: status;
+    &:before {
+      content: "Status";
+    }
+  }
+
+  > *:nth-child(3) {
+    grid-area: nav;
+    &:before {
+      content: "Navigate";
+    }
+  }
+
+  > *:nth-child(4) {
+    grid-area: music-log;
+    &:before {
+      content: "Currently Playing";
+    }
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .title h2 {
+    margin: 0;
+  }
+
+  .row-1 {
     display: flex;
-    flex-direction: column;
     gap: 1rem;
 
-    .title h2 {
-      margin: 0;
-    }
-
-    .row-1 {
-      display: flex;
-      gap: 1rem;
-
-      .pfp {
-        &-border {
-          display: flex;
-          border: 1px solid #75d97e;
-          img {
-            width: 100px;
-          }
+    .pfp {
+      &-border {
+        display: flex;
+        border: 1px solid #75d97e;
+        img {
+          width: 100px;
         }
       }
-
-      .info {
-        display: flex;
-        align-items: center;
-        line-height: 1.8rem;
-      }
     }
 
-    .row-2 {
-      font-size: 1.2rem;
+    .info {
+      display: flex;
+      align-items: center;
+      line-height: 1.8rem;
     }
   }
 
-  nav {
-    ul {
-      padding: 0;
-      li {
-        i {
-          text-align: center;
-          width: 16px;
-        }
+  .row-2 {
+    font-size: 1.2rem;
+  }
+}
 
-        a {
-          line-height: 2rem;
-          color: var(--fg-clr-2);
-        }
+nav {
+  ul {
+    padding: 0;
+    li {
+      i {
+        text-align: center;
+        width: 16px;
+      }
+
+      a {
+        line-height: 2rem;
+        color: var(--fg-clr-2);
       }
     }
+  }
+}
+
+.music-log {
+  .song-info {
+    margin: 0.5rem 0;
+    overflow-x: hidden;
+    text-align: center;
+    > div {
+      display: flex;
+      gap: 8px;
+      line-height: 1.5rem;
+      align-items: center;
+      width: max-content;
+
+      &:nth-child(2) {
+        font-size: 0.8rem;
+      }
+
+      > i {
+        width: 15px;
+      }
+    }
+  }
+
+  .song-album {
+    display: flex;
+    justify-content: center;
+    width: 142px;
+    height: 142px;
+    border: solid 2px gray;
+    border-radius: 0.8rem;
+    background-image: url("../assets/images/no-song-playing.png");
+    background-size: contain;
+  }
+}
+
+/* phones */
+// smol phones
+@media (20em <= width <= 30em) and (orientation: portrait) {
+  .terminals {
+    margin-bottom: 0.5rem;
+    grid-template-columns: 95dvw;
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas:
+      "status"
+      "main"
+      "nav"
+      "music-log";
   }
 
   .music-log {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
     .song-info {
-      margin: 0.5rem 0;
-      overflow-x: hidden;
-      text-align: center;
-      > div {
-        display: flex;
-        gap: 8px;
-        line-height: 1.5rem;
-        align-items: center;
-        width: max-content;
-
-        &:nth-child(2) {
-          font-size: 0.8rem;
-        }
-
-        > i {
-          width: 15px;
-        }
-      }
-    }
-
-    .song-album {
       display: flex;
+      flex-basis: 50%;
+      flex-direction: column;
       justify-content: center;
-      width: 142px;
-      height: 142px;
-      border: solid 2px gray;
-      border-radius: 0.8rem;
-      background-image: url("../assets/images/no-song-playing.png");
-      background-size: contain;
+    }
+    .song-album {
+      flex-basis: 42%;
     }
   }
-
-  /* phones */
-  // smol phones
-  @media (20em <= width <= 30em) and (orientation: portrait) {
-    .terminals {
-      margin-bottom: 0.5rem;
-      grid-template-columns: 95dvw;
-      grid-template-rows: repeat(4, auto);
-      grid-template-areas:
-        "status"
-        "main"
-        "nav"
-        "music-log";
-    }
-
-    .music-log {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      .song-info {
-        display: flex;
-        flex-basis: 50%;
-        flex-direction: column;
-        justify-content: center;
-      }
-      .song-album{
-        flex-basis: 42%;
-      }
-    }
-  }
+}
