@@ -33,8 +33,14 @@ const { frontmatter } = Astro.props;
           ))
         }
       </div>
-      <h2><i class="fa-solid fa-feather"></i> Written by {frontmatter.author}.</h2>
-      <h2><i class="fa-solid fa-calendar-days"></i> Posted on {frontmatter.date.toString()}.</h2>
+      <h2>
+        <i class="fa-solid fa-feather"></i> Written by {frontmatter.author}.
+      </h2>
+      <h2>
+        <i class="fa-solid fa-calendar-days"></i> Posted on {
+          frontmatter.date.toString()
+        }.
+      </h2>
       <hr />
       <slot />
     </div>
@@ -44,6 +50,10 @@ const { frontmatter } = Astro.props;
 <style lang="scss">
   @use "../style/abstracts/" as *;
 
+  h1 {
+    text-align: center;
+  }
+
   .md-post {
     font-size: 1rem;
     display: flex;
@@ -51,7 +61,7 @@ const { frontmatter } = Astro.props;
     justify-content: center;
     align-items: center;
 
-    i{
+    i {
       text-align: center;
       width: 2rem;
     }
@@ -65,7 +75,7 @@ const { frontmatter } = Astro.props;
     border-radius: 5px;
     background-color: var(--bg-clr-1);
 
-    h2{
+    h2 {
       margin: 0;
     }
 
@@ -88,6 +98,17 @@ const { frontmatter } = Astro.props;
       background-color: #155615;
       padding: 0.5em 1em;
       font-size: 1.15em;
+    }
+  }
+
+  @media (20em <= width <= 30em) and (orientation: portrait) {
+    .md-content {
+      width: 87dvw;
+
+      & :global(pre) {
+        text-wrap: wrap;
+        font-size: 0.8rem;
+      }
     }
   }
 </style>

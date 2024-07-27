@@ -59,10 +59,7 @@ main {
 }
 
 @media (20em <= width <= 30em) and (orientation: portrait) {
-  main{
-    margin: 0 8px;
-    >div{
-      width: auto;
-    }
+  main > div {
+    width: 87dvw;
   }
 }
