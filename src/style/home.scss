@@ -145,13 +145,18 @@ nav {
 
   .song-album {
     display: flex;
-    justify-content: center;
-    width: 142px;
-    height: 142px;
+    margin: 0 auto;
+    justify-self: center;
+    width: 146px;
+    height: 146px;
     border: solid 2px gray;
     border-radius: 0.8rem;
     background-image: url("../assets/images/no-song-playing.png");
     background-size: contain;
+    a {
+      width: 100%;
+      height: 100%;
+    }
   }
 }
 
