@@ -135,13 +135,9 @@ nav {
       align-items: center;
       white-space: nowrap;
 
-      &:nth-child(2) {
-        font-size: 0.8rem;
-      }
-
       > i {
         z-index: 2;
-        width: 15px;
+        min-width: 20px;
         background: #0c1016;
       }
     }
