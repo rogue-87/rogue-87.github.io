@@ -4,7 +4,7 @@ const userId = "369982847496355841";
 const socket = new WebSocket("wss://api.lanyard.rest/socket");
 
 socket.onopen = () => {
-  console.log("WebSocket connection opened");
+  // console.log("WebSocket connection opened");
   socket.send(
     JSON.stringify({
       op: 2,
@@ -30,11 +30,11 @@ socket.onmessage = (event) => {
 };
 
 socket.onerror = (error) => {
-  console.error("WebSocket error:", error);
+  // console.error("WebSocket error:", error);
 };
 
 socket.onclose = (event) => {
-  console.log(`WebSocket connection closed: ${event.code} ${event.reason}`);
+  // console.log(`WebSocket connection closed: ${event.code} ${event.reason}`);
 };
 
 function handleInitialState(data) {
@@ -99,10 +99,9 @@ function updateCurrentSong(presence) {
 
 function moveText(elementId) {
   const content = document.getElementById(elementId);
-  const speed = 1/4;
+  const speed = 1 / 4;
   let position = 0;
   let direction = 1;
-  console.log(document.getElementById("song").offsetWidth);
 
   function animate() {
     if (content.innerText.includes("...")) {
