@@ -1,9 +1,10 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import BlogPost from "../components/BlogPost.astro";
-import "../style/blogs.scss";
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import BlogPost from "../../components/BlogPost.astro";
+import "../../style/blogs.scss";
 
-const posts = await Astro.glob("./posts/blogs/*.md");
+const posts = await getCollection("blogs");
 ---
 
 <Layout title="Blogs">
@@ -18,9 +19,9 @@ const posts = await Astro.glob("./posts/blogs/*.md");
         {
           posts.map((post) => (
             <BlogPost
-              url={post.url}
-              title={post.frontmatter.title}
-              date={post.frontmatter.date}
+              url={post.slug}
+              title={post.data.title}
+              date={post.data.date}
             />
           ))
         }

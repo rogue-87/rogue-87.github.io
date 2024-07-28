@@ -8,7 +8,8 @@
 body {
   color: var(--fg-clr-1);
   background-color: var(--bg-clr-1);
-  background-image: url("../assets/images/bkFog.png");
+  // background-image: url("../assets/images/bkFog.png");
+  background-image: url("/den/images/bkFog.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -28,7 +29,8 @@ a {
     --border-clr-1: #6e6e6e;
   }
   body {
-    background-image: url("../assets/images/bkMoon.png");
+    // background-image: url("../assets/images/bkMoon.png");
+    background-image: url("/den/images/bkMoon.png");
     background-position: center 30%;
   }
 }

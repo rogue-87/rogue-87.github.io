@@ -1,15 +1,17 @@
 ---
-interface Props {
-  frontmatter: {
-    title: string;
-    desc: string;
-    author: string;
-    tags: Array<string>;
-    date: string;
-  };
+import { getCollection, getEntry } from "astro:content";
+import favicon from "../../assets/icons/quote.png";
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("blogs");
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
 }
-import favicon from "../assets/icons/quote.png";
-const { frontmatter } = Astro.props;
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const author = await getEntry(entry.data.author);
 ---
 
 <!doctype html>
@@ -19,14 +21,14 @@ const { frontmatter } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/png" href={favicon.src} />
     <meta name="generator" content={Astro.generator} />
-    <title>{frontmatter.title}</title>
+    <title>{entry.data.title}</title>
   </head>
   <body class="md-post">
-    <h1>{frontmatter.title}</h1>
+    <h1>{entry.data.title}</h1>
     <div class="md-content">
       <div class="tags">
         {
-          frontmatter.tags.map((tag) => (
+          entry.data.tags.map((tag) => (
             <p class="tag">
               <a href={`/den/tags/${tag}`}>{tag}</a>
             </p>
@@ -34,21 +36,23 @@ const { frontmatter } = Astro.props;
         }
       </div>
       <h2>
-        <i class="fa-solid fa-feather"></i> Written by {frontmatter.author}.
+        <i class="fa-solid fa-feather"></i> Written by {
+          author.data.alias || author.data.name
+        }.
       </h2>
       <h2>
         <i class="fa-solid fa-calendar-days"></i> Posted on {
-          frontmatter.date.toString()
+          entry.data.date.toString().slice(0, 15)
         }.
       </h2>
       <hr />
-      <slot />
+      <Content />
     </div>
   </body>
 </html>
 
 <style lang="scss">
-  @use "../style/abstracts/" as *;
+  @use "../../style/abstracts/" as *;
 
   h1 {
     text-align: center;
