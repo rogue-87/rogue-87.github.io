@@ -22,6 +22,7 @@ const posts = await getCollection("blogs");
               url={post.slug}
               title={post.data.title}
               date={post.data.date}
+              desc={post.data.desc}
             />
           ))
         }
