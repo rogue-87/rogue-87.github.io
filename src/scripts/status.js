@@ -42,6 +42,8 @@ function handleInitialState(data) {
   if (presence) {
     updateStatus(presence);
     updateCurrentSong(presence);
+    moveText("song");
+    moveText("artist");
   }
 }
 
@@ -50,6 +52,8 @@ function handlePresenceUpdate(data) {
   if (presence) {
     updateStatus(presence);
     updateCurrentSong(presence);
+    moveText("song");
+    moveText("artist");
   }
 }
 
@@ -57,12 +61,12 @@ function updateStatus(presence) {
   let status = presence.discord_status;
   if (status === "online" || status === "idle" || status === "dnd") {
     document.getElementById("status").innerHTML = `
-      <span>Online</span>
+      <span>online</span>
       <i class="fa-solid fa-circle" style="color: #23a55a;"></i>
     `;
   } else {
     document.getElementById("status").innerHTML = `
-      <span>Offline</span>
+      <span>offline</span>
       <i class="fa-solid fa-circle" style="color: gray;"></i>
     `;
   }
@@ -72,13 +76,47 @@ function updateCurrentSong(presence) {
   if (!presence.listening_to_spotify) {
     document.getElementById("song").innerText = "...";
     document.getElementById("artist").innerText = "...";
-    document.getElementById("songLink").setAttribute("href", "#")
-    document.getElementById("songAlbum").style.backgroundImage = `url(${idle.src})`;
+    document.getElementById("songLink").setAttribute("href", "#");
+    document.getElementById("songAlbum").style.backgroundImage =
+      `url(${idle.src})`;
   } else {
     let spotify = presence.spotify;
     document.getElementById("song").innerText = spotify.song;
-    document.getElementById("artist").innerText = spotify.artist.replaceAll(";",",")
-    document.getElementById("songLink").setAttribute("href", `https://open.spotify.com/track/${spotify.track_id}`)
-    document.getElementById("songAlbum").style.backgroundImage = `url(${spotify.album_art_url})`;
+    document.getElementById("artist").innerText = spotify.artist.replaceAll(
+      ";",
+      ",",
+    );
+    document
+      .getElementById("songLink")
+      .setAttribute(
+        "href",
+        `https://open.spotify.com/track/${spotify.track_id}`,
+      );
+    document.getElementById("songAlbum").style.backgroundImage =
+      `url(${spotify.album_art_url})`;
   }
+}
+
+function moveText(elementId) {
+  const content = document.getElementById(elementId);
+  const speed = 1/4;
+  let position = 0;
+  let direction = 1;
+  console.log(document.getElementById("song").offsetWidth);
+
+  function animate() {
+    if (content.innerText.includes("...")) {
+      content.style.transform = `translateX(0px)`;
+      cancelAnimationFrame();
+      return;
+    }
+    position += speed * direction;
+    content.style.transform = `translateX(${position}px)`;
+
+    if (position >= content.offsetWidth || position <= -content.offsetWidth) {
+      direction *= -1;
+    }
+    requestAnimationFrame(animate);
+  }
+  animate();
 }

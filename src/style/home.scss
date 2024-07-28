@@ -48,7 +48,10 @@
 
   > *:nth-child(2) {
     grid-area: status;
+    text-align: center;
+    text-transform: uppercase;
     &:before {
+      text-transform: none;
       content: "Status";
     }
   }
@@ -130,14 +133,16 @@ nav {
       gap: 8px;
       line-height: 1.5rem;
       align-items: center;
-      width: max-content;
+      white-space: nowrap;
 
       &:nth-child(2) {
         font-size: 0.8rem;
       }
 
       > i {
+        z-index: 2;
         width: 15px;
+        background: #0c1016;
       }
     }
   }
@@ -155,7 +160,6 @@ nav {
 }
 
 /* phones */
-// smol phones
 @media (20em <= width <= 30em) and (orientation: portrait) {
   .terminals {
     margin-bottom: 0.5rem;
