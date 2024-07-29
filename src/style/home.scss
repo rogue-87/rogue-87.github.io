@@ -1,4 +1,5 @@
 @use "./abstracts/" as *;
+@use "./utilities/animations/marquee";
 
 .logo {
   text-align: center;
@@ -12,8 +13,8 @@
   justify-content: center;
   gap: 16px;
 
-  grid-template-rows: 3.3rem 17.5rem 16rem;
-  grid-template-columns: 45rem 12rem;
+  grid-template-rows: 53px 280px 256px;
+  grid-template-columns: 720px 192px;
   grid-template-areas:
     "main status"
     "main nav"
@@ -35,6 +36,7 @@
       position: absolute;
       inset: -0.8rem 10px;
       content: "";
+      white-space: nowrap;
     }
   }
 

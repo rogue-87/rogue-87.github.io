@@ -42,8 +42,8 @@ function handleInitialState(data) {
   if (presence) {
     updateStatus(presence);
     updateCurrentSong(presence);
-    moveText("song");
-    moveText("artist");
+    marqueeText("songContainer", "song");
+    marqueeText("artistContainer", "artist");
   }
 }
 
@@ -52,8 +52,8 @@ function handlePresenceUpdate(data) {
   if (presence) {
     updateStatus(presence);
     updateCurrentSong(presence);
-    moveText("song");
-    moveText("artist");
+    marqueeText("songContainer", "song");
+    marqueeText("artistContainer", "artist");
   }
 }
 
@@ -97,25 +97,13 @@ function updateCurrentSong(presence) {
   }
 }
 
-function moveText(elementId) {
-  const content = document.getElementById(elementId);
-  const speed = 1 / 4;
-  let position = 0;
-  let direction = 1;
+function marqueeText(containerElementId, elementId) {
+  const container = document.getElementById(containerElementId);
+  const element = document.getElementById(elementId);
 
-  function animate() {
-    if (content.innerText.includes("...")) {
-      content.style.transform = `translateX(0px)`;
-      cancelAnimationFrame();
-      return;
-    }
-    position += speed * direction;
-    content.style.transform = `translateX(${position}px)`;
-
-    if (position >= content.offsetWidth || position <= -content.offsetWidth) {
-      direction *= -1;
-    }
-    requestAnimationFrame(animate);
+  if (element.innerText.includes("...")) {
+    container.classList.remove("marquee");
+  } else {
+    container.classList.add("marquee");
   }
-  animate();
 }
