@@ -14,7 +14,7 @@
   gap: 16px;
 
   grid-template-rows: 53px 280px 256px;
-  grid-template-columns: 720px 192px;
+  grid-template-columns: clamp(330px, 65vw, 720px) minmax(180px, 192px);
   grid-template-areas:
     "main status"
     "main nav"
