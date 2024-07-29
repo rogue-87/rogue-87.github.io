@@ -3,7 +3,7 @@ interface Props {
   url: string;
   title: string;
   date: Date | undefined;
-  desc: string
+  desc: string;
 }
 
 const { url, title, date, desc } = Astro.props;
@@ -12,7 +12,7 @@ const { url, title, date, desc } = Astro.props;
 <li>
   <div><a href={url}>{title}</a></div>
   <div>{desc}</div>
-  <div>Posted on {date?.toString().slice(0,15)}</div>
+  <div>Posted on {date?.toString().slice(0, 15)}</div>
 </li>
 
 <style lang="scss">
@@ -23,7 +23,10 @@ const { url, title, date, desc } = Astro.props;
     margin-bottom: 1rem;
     div {
       font-size: 1.2rem;
-      &:nth-child(3) { color: #888888;text-align: end; }
+      &:nth-child(3) {
+        color: #888888;
+        text-align: end;
+      }
     }
     &::before {
       content: "";
