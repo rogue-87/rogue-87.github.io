@@ -30,7 +30,7 @@ main {
   align-items: center;
 
   > div {
-    width: 50em;
+    width: clamp(400px, 85dvw, 800px);
     padding: 1.2rem;
     border: 2px solid var(--border-clr-1);
     border-radius: 5px;

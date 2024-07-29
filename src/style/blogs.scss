@@ -18,7 +18,7 @@ main {
   > div {
     padding: 1rem;
     border-radius: 0.3rem;
-    width: 50rem;
+    width: clamp(400px, 85dvw, 800px);
     background-color: var(--bg-clr-1);
     border: 2px solid var(--border-clr-1);
   }
