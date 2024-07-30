@@ -3,18 +3,16 @@
 
 .logo {
   text-align: center;
-  h1 {
-    transition: transform ease-in-out 0.5s;
-  }
 }
 
 .terminals {
   display: grid;
   justify-content: center;
   gap: 16px;
+  margin-bottom: 8px;
 
   grid-template-rows: 53px 280px 256px;
-  grid-template-columns: clamp(330px, 65vw, 700px) minmax(180px, 192px);
+  grid-template-columns: clamp(330px, 65vw, 700px) minmax(180px, 190px);
   grid-template-areas:
     "main status"
     "main nav"
@@ -89,7 +87,7 @@ main {
     .pfp {
       &-border {
         display: flex;
-        border: 1px solid #75d97e;
+        border: 1px solid var(--fg-clr-2);
         img {
           width: 100px;
         }
@@ -120,7 +118,6 @@ nav {
 
       a {
         line-height: 2rem;
-        color: var(--fg-clr-2);
       }
     }
   }
@@ -141,13 +138,14 @@ nav {
       > i {
         z-index: 2;
         min-width: 20px;
+        min-height: 20px;
         background: var(--bg-clr-1);
       }
     }
   }
 
   .song-album {
-    border: solid 2px gray;
+    border: solid 2px var(--border-clr-1);
     border-radius: 8px;
     overflow: hidden;
     .album-cover {
@@ -168,7 +166,7 @@ nav {
 /* phones */
 @media (20em <= width <= 30em) and (orientation: portrait) {
   .terminals {
-    margin-bottom: 8px;
+    margin-bottom: 16px;
     grid-template-columns: 95dvw;
     grid-template-rows: repeat(4, auto);
     grid-template-areas:

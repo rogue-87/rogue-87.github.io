@@ -24,7 +24,7 @@ const { url, title, date, desc } = Astro.props;
     div {
       font-size: 1.2rem;
       &:nth-child(3) {
-        color: #888888;
+        color: var(--fg-clr-3);
         text-align: end;
       }
     }
@@ -32,7 +32,7 @@ const { url, title, date, desc } = Astro.props;
       content: "";
       position: absolute;
       bottom: -5px;
-      background-color: gray;
+      background-color: var(--border-clr-1);
       width: 100%;
       height: 2px;
     }

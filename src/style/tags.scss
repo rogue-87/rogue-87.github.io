@@ -23,9 +23,9 @@ main {
 
 .tag {
   margin: 0.25em;
-  border: solid 2px #a1a1a1;
+  border: solid 2px var(--border-clr-1);
   border-radius: 0.5em;
-  background-color: #155615;
+  background-color: var(--bg-clr-2);
   padding: 0.5em 1em;
   font-size: 1.15em;
 }

@@ -1,7 +1,11 @@
 :root {
   --bg-clr-1: #c9d1d9;
+  --bg-clr-2: #75d97e;
+
   --fg-clr-1: #0d1117;
-  --fg-clr-2: #077744;
+  --fg-clr-2: #034b2a;
+  --fg-clr-3: #424242;
+
   --border-clr-1: #6e6e6e;
 }
 
@@ -23,8 +27,12 @@ a {
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-clr-1: #0d1117;
+    --bg-clr-2: #034b2a;
+
     --fg-clr-1: #c9d1d9;
     --fg-clr-2: #75d97e;
+    --fg-clr-3: #7f7f7f;
+
     --border-clr-1: #6e6e6e;
   }
   body {
