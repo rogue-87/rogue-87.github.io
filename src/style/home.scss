@@ -14,14 +14,14 @@
   gap: 16px;
 
   grid-template-rows: 53px 280px 256px;
-  grid-template-columns: clamp(330px, 65vw, 720px) minmax(180px, 192px);
+  grid-template-columns: clamp(330px, 65vw, 700px) minmax(180px, 192px);
   grid-template-areas:
     "main status"
     "main nav"
     "main music-log";
 
   > * {
-    padding: 1rem;
+    padding: 16px;
     border: 2px solid var(--border-clr-1);
     border-radius: 5px;
     background-color: var(--bg-clr-1);
@@ -29,19 +29,19 @@
     &::before {
       background-color: var(--bg-clr-1);
       border: 2px solid var(--border-clr-1);
-      border-radius: 1rem;
+      border-radius: 16px;
       width: fit-content;
       height: fit-content;
       padding: 0 8px;
       position: absolute;
-      inset: -0.8rem 10px;
+      inset: -16px 10px;
       content: "";
       white-space: nowrap;
     }
   }
 
   > *:nth-child(1) {
-    padding: 1rem;
+    padding: 16px;
     grid-area: main;
     &:before {
       content: "Main";
@@ -76,7 +76,7 @@
 main {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 16px;
 
   .title h2 {
     margin: 0;
@@ -84,7 +84,7 @@ main {
 
   .row-1 {
     display: flex;
-    gap: 1rem;
+    gap: 16px;
 
     .pfp {
       &-border {
@@ -115,6 +115,7 @@ nav {
       i {
         text-align: center;
         width: 16px;
+        margin-right: 4px;
       }
 
       a {
@@ -127,7 +128,7 @@ nav {
 
 .music-log {
   .song-info {
-    margin: 0.5rem 0;
+    margin: 8px 0;
     overflow-x: hidden;
     text-align: center;
     > div {
@@ -146,16 +147,18 @@ nav {
   }
 
   .song-album {
-    display: flex;
-    margin: 0 auto;
-    justify-self: center;
-    width: 146px;
-    height: 146px;
     border: solid 2px gray;
-    border-radius: 0.8rem;
-    background-image: url("../assets/images/no-song-playing.png");
-    background-size: contain;
+    border-radius: 8px;
+    overflow: hidden;
+    .album-cover {
+      margin: 0 auto;
+      width: 100%;
+      height: 150px;
+      background-image: url("../assets/images/no-song-playing.png");
+      background-size: cover;
+    }
     a {
+      display: block;
       width: 100%;
       height: 100%;
     }
@@ -165,7 +168,7 @@ nav {
 /* phones */
 @media (20em <= width <= 30em) and (orientation: portrait) {
   .terminals {
-    margin-bottom: 0.5rem;
+    margin-bottom: 8px;
     grid-template-columns: 95dvw;
     grid-template-rows: repeat(4, auto);
     grid-template-areas:
@@ -178,7 +181,7 @@ nav {
   .music-log {
     display: flex;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 16px;
     .song-info {
       display: flex;
       flex-basis: 50%;
