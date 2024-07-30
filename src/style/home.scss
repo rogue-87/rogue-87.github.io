@@ -10,8 +10,7 @@
   justify-content: center;
   gap: 16px;
   margin-bottom: 8px;
-
-  grid-template-rows: 53px 280px 256px;
+  grid-template-rows: 50px minmax(280px, auto) 256px;
   grid-template-columns: clamp(330px, 65vw, 700px) minmax(180px, 190px);
   grid-template-areas:
     "main status"
@@ -32,14 +31,14 @@
       height: fit-content;
       padding: 0 8px;
       position: absolute;
-      inset: -16px 10px;
+      inset: -12px 10px;
       content: "";
       white-space: nowrap;
+      font-size: 0.85rem;
     }
   }
 
   > *:nth-child(1) {
-    padding: 16px;
     grid-area: main;
     &:before {
       content: "Main";
@@ -49,6 +48,7 @@
   > *:nth-child(2) {
     grid-area: status;
     text-align: center;
+    padding-top: 14px;
     text-transform: uppercase;
     &:before {
       text-transform: none;
@@ -110,14 +110,11 @@ nav {
   ul {
     padding: 0;
     li {
+      line-height: 1.9rem;
+      word-spacing: 4px;
       i {
         text-align: center;
         width: 16px;
-        margin-right: 4px;
-      }
-
-      a {
-        line-height: 2rem;
       }
     }
   }
