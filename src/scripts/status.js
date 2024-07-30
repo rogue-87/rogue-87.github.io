@@ -82,10 +82,7 @@ function updateCurrentSong(presence) {
   } else {
     let spotify = presence.spotify;
     document.getElementById("song").innerText = spotify.song;
-    document.getElementById("artist").innerText = spotify.artist.replaceAll(
-      ";",
-      ",",
-    );
+    document.getElementById("artist").innerText = spotify.artist.replaceAll(";", ",");
     document
       .getElementById("songLink")
       .setAttribute(
