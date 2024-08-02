@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import pfp from "../assets/images/gideon-graves-scott-pilgrim.gif";
 import "../style/home.scss";
@@ -17,13 +16,7 @@ import "../style/home.scss";
       <div class="row-1">
         <div class="pfp">
           <div class="pfp-border">
-            <Image
-              src={pfp}
-              alt="Gideon Graves"
-              width="100"
-              quality="max"
-              loading="eager"
-            />
+            <img src={pfp.src} alt="Gideon Graves" width="100" />
           </div>
         </div>
 
