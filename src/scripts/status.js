@@ -30,11 +30,11 @@ socket.onmessage = (event) => {
 };
 
 socket.onerror = (error) => {
-  // console.error("WebSocket error:", error);
+  console.error("WebSocket error:", error);
 };
 
 socket.onclose = (event) => {
-  // console.log(`WebSocket connection closed: ${event.code} ${event.reason}`);
+  console.log(`WebSocket connection closed: ${event.code} ${event.reason}`);
 };
 
 function handleInitialState(data) {
