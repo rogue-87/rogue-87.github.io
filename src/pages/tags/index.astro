@@ -1,13 +1,13 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import "../../style/tags.scss";
+import "../../style/tags-page.scss";
 
 const posts = await getCollection("blogs");
 const tags = [...new Set(posts.map((post) => post.data.tags).flat())];
 ---
 
-<Layout title="Tag Index">
+<Layout title="Tags">
   <h1>Tags</h1>
   <main>
     <div class="tags">
