@@ -1,23 +1,14 @@
-import { defineCollection, reference, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { blogSchema, authorSchema } from "./schemas";
 
 const blogCollection = defineCollection({
   type: "content",
-  schema: z.object({
-    title: z.string(),
-    date: z.date(),
-    desc: z.string(),
-    author: reference("authors"),
-    tags: z.array(z.string()),
-    relatedPosts: z.array(reference("blogs")).optional(),
-  }),
+  schema: blogSchema,
 });
 
 const authorCollection = defineCollection({
   type: "data",
-  schema: z.object({
-    name: z.string().default("Anonymous"),
-    alias: z.string().optional(),
-  }),
+  schema: authorSchema,
 });
 
 export const collections = {
