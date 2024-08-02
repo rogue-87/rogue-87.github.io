@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import pfp from "../assets/images/gideon-graves-scott-pilgrim.gif";
 import "../style/home.scss";
@@ -16,7 +17,13 @@ import "../style/home.scss";
       <div class="row-1">
         <div class="pfp">
           <div class="pfp-border">
-            <img src={pfp.src} alt="Profile Picture" />
+            <Image
+              src={pfp}
+              alt="Gideon Graves"
+              width="100"
+              quality="max"
+              loading="eager"
+            />
           </div>
         </div>
 
@@ -60,7 +67,7 @@ import "../style/home.scss";
         </li>
         <li>
           <i class="fa-solid fa-rss" style="color: #e66100"></i>
-          <a href="/den/blogs/">blogs(WIP)</a>
+          <a href="/den/blogs/">blogs</a>
         </li>
         <li>
           <i class="fa-regular fa-images" style="color: #96a33a"></i>
