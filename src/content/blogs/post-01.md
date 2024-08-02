@@ -1,8 +1,8 @@
 ---
-# layout: ../../layouts/Markdown.astro
 title: "Understanding WebSockets in JavaScript"
 date: 2024-07-20
 desc: "How websockets work in javascript"
+draft: true
 author: rogue
 tags: ["JavaScript", "WebSockets", "Web Development"]
 ---
