@@ -1,10 +1,16 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import BlogPost from "../../components/BlogPost.astro";
 import "../../style/blogs.scss";
+import { formatDate } from "../../scripts/utils";
 
-const posts = await getCollection("blogs");
+const posts = (
+  await getCollection(
+    "blogs",
+    ({ data }: CollectionEntry<"blogs">) => data.date <= new Date(),
+  )
+).sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
 ---
 
 <Layout title="Blogs">
@@ -21,7 +27,7 @@ const posts = await getCollection("blogs");
             <BlogPost
               url={post.slug}
               title={post.data.title}
-              date={post.data.date}
+              date={formatDate(post.data.date)}
               desc={post.data.desc}
             />
           ))

@@ -2,7 +2,7 @@
 interface Props {
   url: string;
   title: string;
-  date: Date | undefined;
+  date: Date | string | undefined;
   desc: string;
 }
 
@@ -12,7 +12,7 @@ const { url, title, date, desc } = Astro.props;
 <li>
   <div><a href={url}>{title}</a></div>
   <div>{desc}</div>
-  <div>Posted on {date?.toString().slice(0, 15)}</div>
+  <div>Posted on {date}</div>
 </li>
 
 <style lang="scss">
