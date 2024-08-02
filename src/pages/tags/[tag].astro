@@ -1,8 +1,9 @@
 ---
 import { getCollection } from "astro:content";
+import { formatDate } from "../../scripts/utils";
 import Layout from "../../layouts/Layout.astro";
 import BlogPost from "../../components/BlogPost.astro";
-import "../../style/tag-index.scss";
+import "../../style/tag.scss";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blogs");
@@ -33,7 +34,7 @@ const { posts } = Astro.props;
             <BlogPost
               url={`/den/blogs/${post.slug}`}
               title={post.data.title}
-              date={post.data.date}
+              date={formatDate(post.data.date)}
               desc={post.data.desc}
             />
           ))
