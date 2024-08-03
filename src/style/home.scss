@@ -51,9 +51,9 @@
 
   > *:nth-child(2) {
     grid-area: status;
-    text-align: center;
-    padding-top: 14px;
+    padding: 12px;
     text-transform: uppercase;
+    text-align: center;
     &:before {
       text-transform: none;
       content: "Status";
@@ -111,7 +111,7 @@ nav {
   ul {
     padding: 0;
     li {
-      line-height: 1.9rem;
+      line-height: 1.8rem;
       word-spacing: 4px;
       i {
         text-align: center;

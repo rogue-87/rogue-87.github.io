@@ -61,13 +61,17 @@ function updateStatus(presence) {
   let status = presence.discord_status;
   if (status === "online" || status === "idle" || status === "dnd") {
     document.getElementById("status").innerHTML = `
-      <span>online</span>
-      <i class="fa-solid fa-circle" style="color: #23a55a;"></i>
+      online
+      <span>
+        <i class="fa-solid fa-circle" style="color: #23a55a;"></i>
+      </span>
     `;
   } else {
     document.getElementById("status").innerHTML = `
-      <span>offline</span>
-      <i class="fa-solid fa-circle" style="color: gray;"></i>
+        offline
+        <span>
+          <i class="fa-solid fa-circle" style="color: gray;"></i>
+        </span>
     `;
   }
 }
