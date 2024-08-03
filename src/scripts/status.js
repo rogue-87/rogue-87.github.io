@@ -60,19 +60,13 @@ function handlePresenceUpdate(data) {
 function updateStatus(presence) {
   let status = presence.discord_status;
   if (status === "online" || status === "idle" || status === "dnd") {
-    document.getElementById("status").innerHTML = `
-      online
-      <span>
-        <i class="fa-solid fa-circle" style="color: #23a55a;"></i>
-      </span>
-    `;
+    document.getElementById("statusName").innerText = "online";
+    document.getElementById("statusIcon").className = "fa-solid fa-circle";
+    document.getElementById("statusIcon").style.color = "#23a55a";
   } else {
-    document.getElementById("status").innerHTML = `
-      offline
-        <span>
-          <i class="fa-solid fa-circle" style="color: gray;"></i>
-        </span>
-    `;
+    document.getElementById("statusName").innerText = "offline";
+    document.getElementById("statusIcon").className = "fa-solid fa-circle";
+    document.getElementById("statusIcon").style.color = "gray";
   }
 }
 
