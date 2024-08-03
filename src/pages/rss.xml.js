@@ -9,7 +9,7 @@ export async function GET() {
     site: import.meta.env.SITE,
     items: posts.map((post) => ({
       title: post.data.title,
-      description: post.data.description,
+      description: post.data.desc,
       pubDate: post.data.date,
       link: `/den/blogs/${post.slug}`,
     })),

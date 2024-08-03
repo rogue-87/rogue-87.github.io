@@ -1,49 +1,24 @@
 ---
-title: "Understanding WebSockets in JavaScript"
-date: 2024-07-20
-desc: "How websockets work in javascript"
-draft: true
+title: "Hello Cruel World!"
+date: 2024-08-03
+desc: "Finally! my actual first post!"
+draft: false
 author: rogue
-tags: ["JavaScript", "WebSockets", "Web Development"]
+tags: ["Me"]
 ---
 
-## Introduction
+## So what's up?
 
-WebSockets provide a way to open an interactive communication session between the user's browser and a server. With this API, you can send messages to a server and receive event-driven responses without having to poll the server for a reply.
+There isn't much. I'm just soo happy that I actually finished making the blogs page work :D
 
-In this blog post, we'll explore the basics of WebSockets, how to implement them in JavaScript, and some practical use cases.
+Initially, I wanted to use a [headless CMS](https://en.wikipedia.org/wiki/Headless_CMS) for managing my content,
+but turns out! I'm too poor to afford one, so I'm sticking with [SSG](https://en.wikipedia.org/wiki/Static_site_generator) for now.
+I also had the idea to use [dev.to](https://dev.to/) to make my blogs, but honestly I just want something that works, and simple.
 
-## What are WebSockets?
+once I'm satisfied with my website, I'll finally start working on some REEEEEAAAAAAL projects. I'm also close to finishing this semester, so I'll get more time to work on stuff.
 
-WebSockets are a protocol that allows for full-duplex communication channels over a single TCP connection. They are designed to be used in scenarios where you need real-time updates from the server, such as live sports scores, chat applications, or collaborative editing.
+## Who are you?
 
-### How WebSockets Work
+Just a random webdev wannabe, but if you wanna know more about me, then check [whoami](https://rogue-87.github.io/den/about/) page.
 
-When a WebSocket connection is established, the client and server can send messages to each other at any time. This is different from the traditional HTTP request/response model where the client has to initiate every communication.
-
-## Implementing WebSockets in JavaScript
-
-Let's look at a simple example of how to use WebSockets in a JavaScript application.
-
-### Server-Side (Node.js)
-
-First, we'll create a WebSocket server using the `ws` library in Node.js.
-
-```javascript
-const WebSocket = require("ws");
-
-const server = new WebSocket.Server({ port: 8080 });
-
-server.on("connection", (socket) => {
-  console.log("Client connected");
-
-  socket.on("message", (message) => {
-    console.log(`Received: ${message}`);
-    socket.send(`Echo: ${message}`);
-  });
-
-  socket.on("close", () => {
-    console.log("Client disconnected");
-  });
-});
-```
+okay I really need to sleep, it's almost 3am lol.
