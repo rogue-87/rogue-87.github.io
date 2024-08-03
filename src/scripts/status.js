@@ -68,7 +68,7 @@ function updateStatus(presence) {
     `;
   } else {
     document.getElementById("status").innerHTML = `
-        offline
+      offline
         <span>
           <i class="fa-solid fa-circle" style="color: gray;"></i>
         </span>
@@ -81,7 +81,7 @@ function updateCurrentSong(presence) {
     document.getElementById("song").innerText = "...";
     document.getElementById("artist").innerText = "...";
     document.getElementById("songLink").setAttribute("href", "#");
-    document.getElementById("songAlbum").style.backgroundImage =
+    document.getElementById("albumCover").style.backgroundImage =
       `url(${idle.src})`;
   } else {
     let spotify = presence.spotify;
@@ -93,7 +93,7 @@ function updateCurrentSong(presence) {
         "href",
         `https://open.spotify.com/track/${spotify.track_id}`,
       );
-    document.getElementById("songAlbum").style.backgroundImage =
+    document.getElementById("albumCover").style.backgroundImage =
       `url(${spotify.album_art_url})`;
   }
 }

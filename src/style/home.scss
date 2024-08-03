@@ -149,15 +149,14 @@ nav {
     border: solid 2px var(--border-clr-1);
     border-radius: 8px;
     overflow: hidden;
-    width: var(--album-size);
     height: var(--album-size);
+    flex-basis: var(--album-size);
 
     .album-cover {
-      margin: 0 auto;
-      width: inherit;
       height: inherit;
       background-image: url("../assets/images/no-song-playing.png");
-      background-size: cover;
+      background-size: contain;
+      background-position: center;
     }
     a {
       display: block;
