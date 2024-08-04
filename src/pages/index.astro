@@ -155,15 +155,17 @@ import "../style/home.scss";
     op: OpCode;
     seq: 1 | 2;
     t: EventType;
-    d: { userId: Presence } | Presence;
+    d: { [userId]: Presence } | Presence;
   }
 
-  function isUserPresence(d: { userId: Presence } | Presence): d is Presence {
+  function isUserPresence(d: { [userId]: Presence } | Presence): d is Presence {
     return (d as Presence) !== undefined;
   }
 
-  function isUserPresenceList(d: { userId: Presence } | Presence): d is { userId: Presence } {
-    return (d as { userId: Presence }).userId !== undefined;
+  function isUserPresenceList(
+    d: { [userId]: Presence } | Presence,
+  ): d is { [userId]: Presence } {
+    return (d as { [userId]: Presence })[userId] !== undefined;
   }
 
   socket.onopen = () => {
@@ -201,13 +203,14 @@ import "../style/home.scss";
   };
 
   function handleInitialState(data: Data): void {
+    console.log(data.d);
     if (isUserPresenceList(data.d)) {
       const presence: Presence = data.d[userId];
       updateStatus(presence);
       updateCurrentSong(presence);
       marqueeText("songContainer", "song");
       marqueeText("artistContainer", "artist");
-    }
+    } else throw Error("Could not initialize presence");
   }
 
   function handlePresenceUpdate(data: Data): void {
@@ -217,7 +220,7 @@ import "../style/home.scss";
       updateCurrentSong(presence);
       marqueeText("songContainer", "song");
       marqueeText("artistContainer", "artist");
-    }
+    } else throw Error("Could not update presence");
   }
 
   function updateStatus(presence: Presence): void {
@@ -237,14 +240,28 @@ import "../style/home.scss";
     if (presence.listening_to_spotify && presence.spotify) {
       let spotify = presence.spotify;
       document.getElementById("song")!.innerText = spotify.song;
-      document.getElementById("artist")!.innerText = spotify.artist.replaceAll(";", ",");
-      document.getElementById("songLink")!.setAttribute("href", `https://open.spotify.com/track/${spotify.track_id}`);
-      document.getElementById("albumCover")!.style.backgroundImage = `url(${spotify.album_art_url})`;
+
+      document.getElementById("artist")!.innerText = spotify.artist.replaceAll(
+        ";",
+        ",",
+      );
+
+      document
+        .getElementById("songLink")!
+        .setAttribute(
+          "href",
+          `https://open.spotify.com/track/${spotify.track_id}`,
+        );
+
+      document.getElementById("albumCover")!.style.backgroundImage =
+        `url(${spotify.album_art_url})`;
     } else {
       document.getElementById("song")!.innerText = "...";
       document.getElementById("artist")!.innerText = "...";
       document.getElementById("songLink")!.setAttribute("href", "#");
-      document.getElementById("albumCover")!.style.backgroundImage = `url(${idle.src})`;
+
+      document.getElementById("albumCover")!.style.backgroundImage =
+        `url(${idle.src})`;
     }
   }
 
