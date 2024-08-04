@@ -1,5 +1,5 @@
 {
-  "name": "den-astro",
+  "name": "den",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -13,17 +13,17 @@
     "@astrojs/check": "^0.7.0",
     "@astrojs/rss": "^4.0.7",
     "@fortawesome/fontawesome-free": "^6.6.0",
-    "astro": "^4.12.2",
-    "prettier": "^3.3.3",
-    "prettier-plugin-astro": "^0.14.1",
+    "astro": "^4.13.1",
     "sass": "^1.77.8",
     "typescript": "^5.5.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
     "@types/eslint__js": "^8.42.3",
-    "eslint": "9.x",
+    "eslint": "~9.8.0",
     "globals": "^15.9.0",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1",
     "typescript-eslint": "^8.0.0"
   }
 }
