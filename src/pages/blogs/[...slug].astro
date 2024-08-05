@@ -1,10 +1,12 @@
 ---
 import { getCollection, getEntry } from "astro:content";
+import gideon from "../../assets/images/gideon-graves-scott-pilgrim.png";
 import favicon from "../../assets/icons/quote.png";
 import { formatDate } from "../../scripts/utils.js";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blogs");
+
   return blogEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
@@ -18,10 +20,20 @@ const author = await getEntry(entry.data.author);
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Important Stuff -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
+    <!-- Search Engine Stuff -->
+    <meta property="author" content={author.data.alias} />
+    <meta property="description" content={entry.data.desc} />
+    <!-- Open Graph Stuff -->
+    <meta name="keywords" content={entry.data.tags.toString()} />
+    <meta property="og:title" content={entry.data.title} />
+    <meta property="og:description" content={entry.data.desc} />
+    <meta property="og:image" content={gideon.src} />
+    <meta property="og:url" content={"https://rogue-87.github.io/den/"} />
+    <!-- Browser Tab Stuff -->
     <link rel="icon" type="image/png" href={favicon.src} />
-    <meta name="generator" content={Astro.generator} />
     <title>{entry.data.title}</title>
   </head>
   <body class="md-post">
