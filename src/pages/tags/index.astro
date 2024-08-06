@@ -1,6 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
 import "../../style/tags-page.scss";
 
 const posts = await getCollection("blogs");
@@ -8,16 +10,20 @@ const tags = [...new Set(posts.map((post) => post.data.tags).flat())];
 ---
 
 <Layout title="Tags">
+  <Header />
   <h1>Tags</h1>
   <main>
     <div class="tags">
-      {
-        tags.map((tag) => (
-          <p class="tag">
-            <a href={`/den/tags/${tag}`}>{tag}</a>
-          </p>
-        ))
-      }
+      <div class="tags-padding">
+        {
+          tags.map((tag) => (
+            <p class="tag">
+              <a href={`/den/tags/${tag}`}>{tag}</a>
+            </p>
+          ))
+        }
+      </div>
     </div>
   </main>
+  <Footer />
 </Layout>

@@ -2,6 +2,8 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import BlogPost from "../../components/BlogPost.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
 import "../../style/blogs.scss";
 import { formatDate } from "../../scripts/utils";
 
@@ -14,25 +16,29 @@ const posts = (
 ---
 
 <Layout title="Blogs">
+  <Header />
   <h1>Blogs</h1>
   <main>
     <div class="blogs">
-      <h3 class="tags">
-        <span><i class="fa-solid fa-tags"></i></span>
-        <a href="/den/tags">Filter by tag</a>
-      </h3>
-      <ul>
-        {
-          posts.map((post) => (
-            <BlogPost
-              url={post.slug}
-              title={post.data.title}
-              date={formatDate(post.data.date)}
-              desc={post.data.desc}
-            />
-          ))
-        }
-      </ul>
+      <div class="blogs-padding">
+        <h3 class="tags">
+          <span><i class="fa-solid fa-tags"></i></span>
+          <a href="/den/tags">Filter by tag</a>
+        </h3>
+        <ul>
+          {
+            posts.map((post) => (
+              <BlogPost
+                url={post.slug}
+                title={post.data.title}
+                date={formatDate(post.data.date)}
+                desc={post.data.desc}
+              />
+            ))
+          }
+        </ul>
+      </div>
     </div>
   </main>
+  <Footer />
 </Layout>

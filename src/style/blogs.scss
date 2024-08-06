@@ -1,13 +1,17 @@
 @forward "abstracts/";
 
-ul {
-  padding: inherit;
-  margin: initial;
+body {
+  display: flex;
+  flex-direction: column;
 }
 
-h1,
-h3 {
+header > div {
+  width: 65% !important;
+}
+
+h1 {
   text-align: center;
+  margin-top: 0;
 }
 
 main {
@@ -15,17 +19,28 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  > div {
-    padding: 1rem;
-    border-radius: 0.3rem;
-    width: clamp(400px, 85dvw, 800px);
-    background-color: var(--bg-clr-1);
-    border: 2px solid var(--border-clr-1);
+  margin-bottom: 20px;
+}
+
+.blogs {
+  border-radius: 5px;
+  width: 65%;
+  background-color: var(--bg-clr-1);
+  border: 2px solid var(--border-clr-1);
+  > #{&}-padding {
+    padding: 16px;
+  }
+  h3 {
+    text-align: center;
+  }
+  ul {
+    padding: inherit;
+    margin: initial;
   }
 }
 
 @media (20em <= width <= 30em) and (orientation: portrait) {
-  main > div {
-    width: 85dvw;
+  .blogs {
+    width: 92%;
   }
 }

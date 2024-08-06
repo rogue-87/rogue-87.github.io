@@ -1,54 +1,62 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 import biker from "../assets/images/Biker.png";
 
-import "../style/whoami.scss";
+import "../style/about.scss";
 ---
 
 <Layout title="whoami">
+  <Header />
   <h1>Whoami?</h1>
   <main>
-    <div>
-      <p>just a silly guy with silly dreams</p>
-      <p>
-        But in all seriousness, My name is Ali. I'm a guy who happens to know a
-        thing or two about computers. Currently, I'm learning front-end web
-        development. My first Language was Java, though I didn't do much with
-        it, mainly because that was what my university offered. Later on, I
-        learned JavaScript, and then Lua(because neovim, of course). I kinda
-        lost track of where I was when I fell into the Linux rabbit hole, but
-        now I'm back on track and resuming my web develpoment journey.
-      </p>
+    <div class="content">
+      <div class="content-padding">
+        <p>just a silly guy with silly dreams</p>
+        <p>
+          But in all seriousness, My name is Ali. I'm a guy who happens to know
+          a thing or two about computers. Currently, I'm learning front-end web
+          development. My first Language was Java, though I didn't do much with
+          it, mainly because that was what my university offered. Later on, I
+          learned JavaScript, and then Lua(because neovim, of course). I kinda
+          lost track of where I was when I fell into the Linux rabbit hole, but
+          now I'm back on track and resuming my web develpoment journey.
+        </p>
 
-      <h2>What do you do?</h2>
-      <p>I'm currently a student at Benghazi University.</p>
+        <h2>What do you do?</h2>
+        <p>I'm currently a student at Benghazi University.</p>
 
-      <h2>Hobbies?</h2>
-      <p>
-        There ain't much. I do gaming every now and then. I used to be
-        interested in pixel art and am trying to rekindle that rusty old hobby
-        of mine.
-      </p>
+        <h2>Hobbies?</h2>
+        <p>
+          There ain't much. I do gaming every now and then. I used to be
+          interested in pixel art and am trying to rekindle that rusty old hobby
+          of mine.
+        </p>
 
-      <div>
-        <p>Here's a pic of my last piece of art from a couple of years ago:</p>
-        <div class="biker-img">
-          <img src={biker.src} alt="biker pixel" />
+        <div>
+          <p>
+            Here's a pic of my last piece of art from a couple of years ago:
+          </p>
+          <div class="biker-img">
+            <img src={biker.src} alt="biker pixel" />
+          </div>
         </div>
+
+        <h2>Goals?</h2>
+        <p>
+          As I mentioned before, I'm learning web development, and I feel like
+          I'm at a point where I can pick a framework now. I think I spent
+          enough time muddling with the html,css and js.
+        </p>
+
+        <h2>Contact?</h2>
+        <ul>
+          <li><a href="https://matrix.to/#/@rogue87:matrix.org">Matrix</a></li>
+          <li><a href="mailto:rogue87.dev@gmail.com">Mail</a></li>
+        </ul>
       </div>
-
-      <h2>Goals?</h2>
-      <p>
-        As I mentioned before, I'm learning web development, and I feel like I'm
-        at a point where I can pick a framework now. I think I spent enough time
-        muddling with the html,css and js.
-      </p>
-
-      <h2>Contact?</h2>
-      <ul>
-        <li><a href="https://matrix.to/#/@rogue87:matrix.org">Matrix</a></li>
-        <li><a href="mailto:rogue87.dev@gmail.com">Mail</a></li>
-      </ul>
     </div>
   </main>
+  <Footer />
 </Layout>

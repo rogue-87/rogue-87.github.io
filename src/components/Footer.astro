@@ -1,0 +1,39 @@
+---
+
+---
+
+<footer>
+  <div>Powered by</div>
+  <a href="https://astro.build/">
+    <img src="/den/icons/astro-icon-light-gradient.svg" alt="" />
+  </a>
+</footer>
+
+<style>
+  footer {
+    background: var(--bg-clr-1);
+    border-top: 2px solid var(--border-clr-1);
+
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    padding: 8px;
+    gap: 1ch;
+    margin-top: auto;
+  }
+
+  a {
+    display: flex;
+    width: 20px;
+  }
+
+  img {
+    width: inherit;
+    height: inherit;
+  }
+  @media (orientation: landscape) {
+    footer {
+      /* margin-top: 20px; */
+    }
+  }
+</style>

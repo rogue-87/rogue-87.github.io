@@ -2,6 +2,9 @@
 import { getCollection, getEntry } from "astro:content";
 import gideon from "../../assets/images/gideon-graves-scott-pilgrim.png";
 import favicon from "../../assets/icons/quote.png";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
 import { formatDate } from "../../scripts/utils.js";
 
 export async function getStaticPaths() {
@@ -36,61 +39,75 @@ const author = await getEntry(entry.data.author);
     <link rel="icon" type="image/png" href={favicon.src} />
     <title>{entry.data.title}</title>
   </head>
-  <body class="md-post">
+  <body>
+    <!-- <div class="wrapper"> -->
+    <Header />
+    <!-- </div> -->
     <h1>{entry.data.title}</h1>
-    <div class="md-content">
-      <div class="tags">
-        {
-          entry.data.tags.map((tag) => (
-            <p class="tag">
-              <a href={`/den/tags/${tag}`}>{tag}</a>
-            </p>
-          ))
-        }
+    <main>
+      <div class="md-content">
+        <div class="md-content-padding">
+          <div class="tags">
+            {
+              entry.data.tags.map((tag) => (
+                <p class="tag">
+                  <a href={`/den/tags/${tag}`}>{tag}</a>
+                </p>
+              ))
+            }
+          </div>
+          <h2>
+            <i class="fa-solid fa-feather"></i> Written by {
+              author.data.alias || author.data.name
+            }.
+          </h2>
+          <h2>
+            <i class="fa-solid fa-calendar-days"></i> Posted on {
+              formatDate(entry.data.date)
+            }.
+          </h2>
+          <hr />
+          <Content />
+        </div>
       </div>
-      <h2>
-        <i class="fa-solid fa-feather"></i> Written by {
-          author.data.alias || author.data.name
-        }.
-      </h2>
-      <h2>
-        <i class="fa-solid fa-calendar-days"></i> Posted on {
-          formatDate(entry.data.date)
-        }.
-      </h2>
-      <hr />
-      <Content />
-    </div>
+    </main>
+    <Footer />
   </body>
 </html>
 
-<style lang="scss">
+<style lang="scss" is:global>
   @use "../../style/abstracts/" as *;
 
   h1 {
     text-align: center;
+    margin-top: 0;
   }
 
-  .md-post {
-    font-size: 1rem;
+  body {
     display: flex;
     flex-direction: column;
+  }
+
+  main {
+    display: flex;
     justify-content: center;
-    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .md-content {
+    width: 75%;
+    border: 2px solid var(--border-clr-1);
+    border-radius: 5px;
+    background-color: var(--bg-clr-1);
+
+    > #{&}-padding {
+      padding: 16px;
+    }
 
     i {
       text-align: center;
       width: 2rem;
     }
-  }
-
-  .md-content {
-    margin-bottom: 2.5rem;
-    padding: 1rem;
-    width: 75%;
-    border: 2px solid var(--border-clr-1);
-    border-radius: 5px;
-    background-color: var(--bg-clr-1);
 
     h2 {
       margin: 0;
@@ -122,7 +139,7 @@ const author = await getEntry(entry.data.author);
 
   @media (20em <= width <= 30em) and (orientation: portrait) {
     .md-content {
-      width: 87dvw;
+      width: 92%;
 
       & :global(pre) {
         text-wrap: wrap;
