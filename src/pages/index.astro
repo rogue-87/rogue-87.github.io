@@ -203,7 +203,6 @@ import "../style/home.scss";
   };
 
   function handleInitialState(data: Data): void {
-    console.log(data.d);
     if (isUserPresenceList(data.d)) {
       const presence: Presence = data.d[userId];
       updateStatus(presence);
