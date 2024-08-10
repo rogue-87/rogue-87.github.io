@@ -9,7 +9,9 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
-      "@layouts/*": ["src/layouts/*"]
+      "@layouts/*": ["src/layouts/*"],
+      "@assets/*": ["src/assets/*"],
+      "@style/*": ["src/style/*"]
     },
     "strictNullChecks": true,
     "allowJs": true
