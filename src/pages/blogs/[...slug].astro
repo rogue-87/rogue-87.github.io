@@ -1,6 +1,5 @@
 ---
 import { getCollection, getEntry } from "astro:content";
-import gideon from "@assets/images/gideon-graves-scott-pilgrim.png";
 import favicon from "@assets/icons/quote.png";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
@@ -33,16 +32,17 @@ const author = await getEntry(entry.data.author);
     <meta name="keywords" content={entry.data.tags.toString()} />
     <meta property="og:title" content={entry.data.title} />
     <meta property="og:description" content={entry.data.desc} />
-    <meta property="og:image" content={gideon.src} />
+    <meta
+      property="og:image"
+      content={entry.data.img?.src ? `/den/content/blogs/${entry.data.img.src}` : "/den/images/nothing.png"}
+    />
     <meta property="og:url" content={"https://rogue-87.github.io/den/"} />
     <!-- Browser Tab Stuff -->
     <link rel="icon" type="image/png" href={favicon.src} />
     <title>{entry.data.title}</title>
   </head>
   <body>
-    <!-- <div class="wrapper"> -->
     <Header />
-    <!-- </div> -->
     <h1>{entry.data.title}</h1>
     <main>
       <div class="md-content">
@@ -56,16 +56,24 @@ const author = await getEntry(entry.data.author);
               ))
             }
           </div>
-          <h2>
-            <i class="fa-solid fa-feather"></i> Written by {
-              author.data.alias || author.data.name
-            }.
-          </h2>
-          <h2>
-            <i class="fa-solid fa-calendar-days"></i> Posted on {
-              formatDate(entry.data.date)
-            }.
-          </h2>
+          <div class="upper-content">
+            <div>
+              <h2>
+                <i class="fa-solid fa-feather"></i> Written by {author.data.alias || author.data.name}.
+              </h2>
+
+              <h2>
+                <i class="fa-solid fa-calendar-days"></i> Posted on {formatDate(entry.data.date)}.
+              </h2>
+            </div>
+
+            <div>
+              <img
+                src={entry.data.img?.src ? `/den/content/blogs/${entry.data.img.src}` : "/den/images/nothing.png"}
+                alt={entry.data.img?.alt ? entry.data.img.alt : ""}
+              />
+            </div>
+          </div>
           <hr />
           <Content />
         </div>
@@ -137,6 +145,24 @@ const author = await getEntry(entry.data.author);
     }
   }
 
+  .upper-content {
+    display: flex;
+    justify-content: space-between;
+
+    div:nth-child(1) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    img {
+      display: block;
+      width: 150px;
+      height: 150px;
+    }
+  }
+
   @media (20em <= width <= 30em) and (orientation: portrait) {
     .md-content {
       width: 92%;
@@ -144,6 +170,16 @@ const author = await getEntry(entry.data.author);
       & :global(pre) {
         text-wrap: wrap;
         font-size: 0.8rem;
+      }
+    }
+
+    .upper-content {
+      flex-direction: column;
+      gap: 16px;
+
+      img {
+        width: 100%;
+        height: 100%;
       }
     }
   }

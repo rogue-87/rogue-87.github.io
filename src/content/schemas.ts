@@ -8,6 +8,10 @@ export const blogSchema = z.object({
     .or(z.date())
     .transform((val) => new Date(val)),
   desc: z.string(),
+  img: z.object({
+    src: z.string(),
+    alt: z.string(),
+  }).optional(),
   draft: z.boolean(),
   author: reference("authors"),
   tags: z.array(z.string()),

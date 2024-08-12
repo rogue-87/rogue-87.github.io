@@ -3,17 +3,18 @@ title: "Hello Cruel World!"
 date: 2024-08-03
 desc: "Finally! my actual first post!"
 draft: false
+img:
+    src: "smiley.png"
+    alt: "Smiley face"
 author: rogue
-tags: ["Me"]
+tags: ["me"]
 ---
 
 ## So what's up?
 
 There isn't much. I'm just soo happy that I actually finished making the blogs page work :D
 
-Initially, I wanted to use a [headless CMS](https://en.wikipedia.org/wiki/Headless_CMS) for managing my content,
-but turns out! I'm too poor to afford one, so I'm sticking with [SSG](https://en.wikipedia.org/wiki/Static_site_generator) for now.
-I also had the idea to use [dev.to](https://dev.to/) to make my blogs, but honestly I just want something that works, and simple.
+Initially, I wanted to use a [headless CMS](https://en.wikipedia.org/wiki/Headless_CMS) for managing my content, but turns out! I'm too poor to afford one, so I'm sticking with [SSG](https://en.wikipedia.org/wiki/Static_site_generator) for now. I also had the idea to use [dev.to](https://dev.to/) to make my blogs, but honestly I just want something that works, and simple.
 
 once I'm satisfied with my website, I'll finally start working on some REEEEEAAAAAAL projects. I'm also close to finishing this semester, so I'll get more time to work on stuff.
 
