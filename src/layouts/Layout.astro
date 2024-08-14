@@ -1,10 +1,11 @@
 ---
 interface Props {
-  title?: string;
+  title: string;
   desc?: string;
   author?: string;
   keywords?: Array<string>;
   url?: string;
+  ogImage?: string;
   isHome?: boolean;
 }
 
@@ -20,14 +21,13 @@ const {
   keywords = ["web development", "javascript", "astrojs", "linux"],
   url = `${siteUrl}${baseUrl}`,
   isHome = false,
+  ogImage = gideon.src,
 } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Sitemap Stuff -->
-    <link rel="sitemap" href={url + "/sitemap-index.xml"} />
     <!-- RSS Stuff HOMEPAGE ONLY -->
     {isHome && <link rel="alternate" type="application/rss+xml" title="Rogue's Den" href={new URL("rss.xml", Astro.site)} />}
     <!-- Important Stuff -->
@@ -40,7 +40,8 @@ const {
     <meta name="keywords" content={keywords.toString()} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={desc} />
-    <meta property="og:image" content={gideon.src} />
+    <meta property="og:site_name" content={author} />
+    <meta property="og:image" content={ogImage} />
     <meta property="og:url" content={url} />
     <!-- Browser Tab Stuff -->
     <link rel="icon" type="image/png" href={favicon.src} />

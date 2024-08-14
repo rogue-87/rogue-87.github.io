@@ -1,8 +1,8 @@
 ---
 import { getCollection, getEntry } from "astro:content";
-import favicon from "@assets/icons/quote.png";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
+import Layout from "@layouts/Layout.astro";
 
 import { formatDate } from "../../scripts/utils.js";
 
@@ -18,73 +18,54 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 const author = await getEntry(entry.data.author);
 const baseUrl = import.meta.env.BASE_URL;
-const siteUrl = import.meta.env.SITE;
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Important Stuff -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!-- Search Engine Stuff -->
-    <meta property="author" content={author.data.name} />
-    <meta property="description" content={entry.data.desc} />
-    <!-- Open Graph Stuff -->
-    <meta name="keywords" content={entry.data.tags.toString()} />
-    <meta property="og:title" content={entry.data.title} />
-    <meta property="og:description" content={entry.data.desc} />
-    <meta property="og:site_name" content={author.data.name} />
-    <meta
-      property="og:image"
-      content={entry.data.img?.src ? `${baseUrl}/content/blogs/${entry.data.img.src}` : `${baseUrl}/images/nothing.png`}
-    />
-    <meta property="og:url" content={siteUrl + baseUrl + "/blogs/" + entry.slug} />
-    <!-- Browser Tab Stuff -->
-    <link rel="icon" type="image/png" href={favicon.src} />
-    <title>{entry.data.title}</title>
-  </head>
-  <body>
-    <Header />
-    <h1>{entry.data.title}</h1>
-    <main>
-      <div class="md-content">
-        <div class="md-content-padding">
-          <div class="tags">
-            {
-              entry.data.tags.map((tag) => (
-                <p class="tag">
-                  <a href={`${baseUrl}/tags/${tag}`}>{tag}</a>
-                </p>
-              ))
-            }
-          </div>
-          <div class="upper-content">
-            <div>
-              <h2>
-                <i class="fa-solid fa-feather"></i> Written by {author.data.name || author.data.name}.
-              </h2>
-
-              <h2>
-                <i class="fa-solid fa-calendar-days"></i> Posted on {formatDate(entry.data.date)}.
-              </h2>
-            </div>
-
-            <div>
-              <img
-                src={entry.data.img?.src ? `${baseUrl}/content/blogs/${entry.data.img.src}` : `${baseUrl}/images/nothing.png`}
-                alt={entry.data.img?.alt ? entry.data.img.alt : ""}
-              />
-            </div>
-          </div>
-          <hr />
-          <Content />
+<Layout
+  title={entry.data.title}
+  desc={entry.data.desc}
+  author={author.data.name}
+  keywords={entry.data.tags}
+  ogImage={entry.data.img?.src ? `${baseUrl}/content/blogs/${entry.data.img.src}` : `${baseUrl}/images/nothing.png`}
+>
+  <Header />
+  <h1>{entry.data.title}</h1>
+  <main>
+    <div class="md-content">
+      <div class="md-content-padding">
+        <div class="tags">
+          {
+            entry.data.tags.map((tag) => (
+              <p class="tag">
+                <a href={`${baseUrl}/tags/${tag}`}>{tag}</a>
+              </p>
+            ))
+          }
         </div>
+        <div class="upper-content">
+          <div>
+            <h2>
+              <i class="fa-solid fa-feather"></i> Written by {author.data.name || author.data.name}.
+            </h2>
+
+            <h2>
+              <i class="fa-solid fa-calendar-days"></i> Posted on {formatDate(entry.data.date)}.
+            </h2>
+          </div>
+
+          <div>
+            <img
+              src={entry.data.img?.src ? `${baseUrl}/content/blogs/${entry.data.img.src}` : `${baseUrl}/images/nothing.png`}
+              alt={entry.data.img?.alt ? entry.data.img.alt : ""}
+            />
+          </div>
+        </div>
+        <hr />
+        <Content />
       </div>
-    </main>
-    <Footer />
-  </body>
-</html>
+    </div>
+  </main>
+  <Footer />
+</Layout>
 
 <style lang="scss" is:global>
   @forward "@style/abstracts/";
