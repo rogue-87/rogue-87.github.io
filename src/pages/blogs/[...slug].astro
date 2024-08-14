@@ -34,6 +34,7 @@ const siteUrl = import.meta.env.SITE;
     <meta name="keywords" content={entry.data.tags.toString()} />
     <meta property="og:title" content={entry.data.title} />
     <meta property="og:description" content={entry.data.desc} />
+    <meta property="og:site_name" content={author.data.name} />
     <meta
       property="og:image"
       content={entry.data.img?.src ? `${baseUrl}/content/blogs/${entry.data.img.src}` : `${baseUrl}/images/nothing.png`}
