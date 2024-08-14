@@ -9,21 +9,25 @@ interface Props {
 
 import favicon from "../assets/icons/quote.png";
 import gideon from "../assets/images/gideon-graves-scott-pilgrim.png";
+const siteUrl = import.meta.env.SITE;
+const baseUrl = import.meta.env.BASE_URL;
 
 const {
   title = "Rogue's Den",
   desc = "my small little den",
   author = "Rogue87",
   keywords = ["web development", "javascript", "astrojs", "linux"],
-  url = "https://rogue-87.github.io/den/",
+  url = `${siteUrl}${baseUrl}`,
 } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Sitemap Stuff -->
+    <link rel="sitemap" href={url + "sitemap-index.xml"} />
     <!-- RSS Stuff -->
-    <link rel="alternate" type="application/rss+xml" title="Rogue's Den" href={new URL("rss.xml", Astro.site)}>
+    <link rel="alternate" type="application/rss+xml" title="Rogue's Den" href={new URL("rss.xml", Astro.site)} />
     <!-- Important Stuff -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />

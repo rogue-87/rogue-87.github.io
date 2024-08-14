@@ -3,10 +3,11 @@ import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import "../../style/tags-page.scss";
+import "@style/tags-page.scss";
 
 const posts = await getCollection("blogs");
 const tags = [...new Set(posts.map((post) => post.data.tags).flat())];
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <Layout title="Tags">
@@ -18,7 +19,7 @@ const tags = [...new Set(posts.map((post) => post.data.tags).flat())];
         {
           tags.map((tag) => (
             <p class="tag">
-              <a href={`/den/tags/${tag}`}>{tag}</a>
+              <a href={`${baseUrl}tags/${tag}`}>{tag}</a>
             </p>
           ))
         }

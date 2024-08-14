@@ -10,6 +10,6 @@ export default {
       },
     },
   ],
-  printWidth: 120,
+  printWidth: 130,
   proseWrap: "never",
 };
