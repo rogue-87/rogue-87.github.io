@@ -26,12 +26,7 @@ const baseUrl = import.meta.env.BASE_URL;
         <ul>
           {
             posts.map((post) => (
-              <BlogPost
-                url={post.slug}
-                title={post.data.title}
-                date={formatDate(post.data.date)}
-                desc={post.data.desc}
-              />
+              <BlogPost url={post.slug} title={post.data.title} date={formatDate(post.data.date)} desc={post.data.desc} />
             ))
           }
         </ul>

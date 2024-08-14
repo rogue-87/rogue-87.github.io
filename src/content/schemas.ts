@@ -8,10 +8,12 @@ export const blogSchema = z.object({
     .or(z.date())
     .transform((val) => new Date(val)),
   desc: z.string(),
-  img: z.object({
-    src: z.string(),
-    alt: z.string(),
-  }).optional(),
+  img: z
+    .object({
+      src: z.string(),
+      alt: z.string(),
+    })
+    .optional(),
   draft: z.boolean(),
   author: reference("authors"),
   tags: z.array(z.string()),
@@ -25,5 +27,5 @@ export const projectSchema = z.object({});
 /* Data */
 export const authorSchema = z.object({
   name: z.string().default("Anonymous"),
-  alias: z.string().optional(),
+  email: z.string().optional(),
 });
