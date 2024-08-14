@@ -35,7 +35,7 @@ const baseUrl = import.meta.env.BASE_URL;
     <meta property="og:description" content={entry.data.desc} />
     <meta
       property="og:image"
-      content={entry.data.img?.src ? `${baseUrl}content/blogs/${entry.data.img.src}` : `${baseUrl}den/images/nothing.png`}
+      content={entry.data.img?.src ? `${baseUrl}/content/blogs/${entry.data.img.src}` : `${baseUrl}/images/nothing.png`}
     />
     <meta property="og:url" content={"https://rogue-87.github.io/den/"} />
     <!-- Browser Tab Stuff -->
@@ -52,7 +52,7 @@ const baseUrl = import.meta.env.BASE_URL;
             {
               entry.data.tags.map((tag) => (
                 <p class="tag">
-                  <a href={`${baseUrl}tags/${tag}`}>{tag}</a>
+              <a href={`${baseUrl}/tags/${tag}`}>{tag}</a>
                 </p>
               ))
             }
@@ -70,7 +70,7 @@ const baseUrl = import.meta.env.BASE_URL;
 
             <div>
               <img
-                src={entry.data.img?.src ? `${baseUrl}content/blogs/${entry.data.img.src}` : `${baseUrl}den/images/nothing.png`}
+                src={entry.data.img?.src ? `${baseUrl}/content/blogs/${entry.data.img.src}` : `${baseUrl}/images/nothing.png`}
                 alt={entry.data.img?.alt ? entry.data.img.alt : ""}
               />
             </div>
