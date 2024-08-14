@@ -4,9 +4,6 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   site: "https://rogue-87.github.io",
-  base: "/den/",
+  base: "",
   integrations: [sitemap()],
-  vite: {
-    logLevel: "error",
-  },
 });
