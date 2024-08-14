@@ -4,8 +4,8 @@ date: 2024-08-03
 desc: "Finally! my actual first post!"
 draft: false
 img:
-    src: "smiley.png"
-    alt: "Smiley face"
+  src: "smiley.png"
+  alt: "Smiley face"
 author: rogue
 tags: ["me"]
 ---

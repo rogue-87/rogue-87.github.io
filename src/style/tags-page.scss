@@ -43,7 +43,7 @@ main {
   font-size: 1.15em;
 }
 
-@media (20em <= width <= 30em) and (orientation: portrait) {
+@media screen and (320px <= width <= 480px) and (orientation: portrait) {
   .tags {
     width: 92%;
   }

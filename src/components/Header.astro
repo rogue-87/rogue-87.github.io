@@ -3,7 +3,7 @@
 ---
 
 <header>
-  <div>
+  <nav>
     <ul>
       <li>
         <i class="fa-solid fa-house" style="color: #74d97d"></i>
@@ -22,35 +22,84 @@
         <a href="/den/projects">projects</a>
       </li>
     </ul>
-  </div>
+    <button class="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </nav>
 </header>
 
 <style>
   header {
     display: flex;
     justify-content: center;
-    margin-top: 16px;
-    margin-bottom: 4px;
-    div {
-      width: 75%;
-    }
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    margin: 16px 0;
+    width: 75%;
   }
 
   ul {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     gap: 16px;
-    li {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 6px;
-    }
   }
-  @media (20em <= width <= 30em) and (orientation: portrait) {
+
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+  }
+
+  .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--fg-clr-2);
+  }
+
+  @media screen and (320px <= width <= 480px) {
     header {
-      justify-content: center;
-      div {
-        width: initial !important;
+      justify-content: end;
+    }
+
+    ul {
+      position: fixed;
+      left: -100%;
+      top: 60px;
+      flex-direction: column;
+      background-color: var(--bg-clr-2);
+      border: 2px solid var(--border-clr-1);
+      border-radius: 6px;
+      width: 100%;
+      text-align: center;
+      transition: 0.3s;
+      gap: 32px;
+      padding: 32px 0;
+      z-index: 1;
+    }
+
+    .hamburger {
+      display: block;
+      cursor: pointer;
+    }
+
+    nav {
+      margin: 16px;
+      width: initial;
+
+      &:focus-within {
+        ul {
+          left: 0;
+        }
       }
     }
   }

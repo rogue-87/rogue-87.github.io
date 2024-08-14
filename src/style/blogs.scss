@@ -39,7 +39,7 @@ main {
   }
 }
 
-@media (20em <= width <= 30em) and (orientation: portrait) {
+@media screen and (320px <= width <= 480px) and (orientation: portrait) {
   .blogs {
     width: 92%;
   }

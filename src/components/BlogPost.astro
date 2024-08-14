@@ -43,4 +43,10 @@ const { url, title, date, desc } = Astro.props;
       }
     }
   }
+
+  @media screen and (320px <= width <= 480px) and (orientation: portrait) {
+    li > div:last-child {
+      text-align: left;
+    }
+  }
 </style>
