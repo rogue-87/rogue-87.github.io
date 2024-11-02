@@ -31,7 +31,8 @@
 	}
 
 	.hero {
-		height: 100dvh;
+		min-height: 100dvh;
+		height: auto;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -46,5 +47,11 @@
 	.pfp img {
 		border-radius: 16px;
 		border: 2px solid var(--border-primary);
+	}
+
+	@media screen and (600px <= width <= 900px) and (orientation: landscape) {
+		.hero {
+			padding: 80px 0;
+		}
 	}
 </style>
