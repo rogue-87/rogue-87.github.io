@@ -31,9 +31,11 @@
 	ul {
 		padding: 0;
 		display: flex;
-		justify-content: space-around;
+		justify-content: space-between;
 		align-items: center;
 		height: 65px;
+		width: var(--global-width);
+		margin: 0 auto;
 	}
 
 	li {

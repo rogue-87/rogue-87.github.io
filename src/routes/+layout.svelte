@@ -14,16 +14,20 @@
 <Footer />
 
 <style>
+	:root {
+		--global-width: 60vw;
+	}
+
 	main {
 		min-height: 100dvh;
 		height: auto;
-		width: 60vw;
+		width: var(--global-width);
 		margin: 0 auto;
 	}
 
 	@media screen and (320px <= width <= 480px) and (orientation: portrait) {
-		main {
-			width: 85vw;
+		:root {
+			--global-width: 90vw;
 		}
 	}
 
