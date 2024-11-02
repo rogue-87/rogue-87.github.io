@@ -1,0 +1,15 @@
+:root {
+	--bg-primary-light: #29292f;
+	--bg-primary: #232329;
+	--bg-primary-dark: #101012;
+
+	--bg-accent: #4b0202;
+
+	--fg-primary-light: #ffffff;
+	--fg-primary: #cdcdcd;
+	--fg-primary-dark: #717171;
+
+	--fg-accent: #4f4d4d;
+
+	--border-primary: #4f4d4d;
+}

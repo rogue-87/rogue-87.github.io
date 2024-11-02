@@ -1,0 +1,50 @@
+<script>
+	import { connect } from "../../stores/websocket.svelte";
+	import gideon from "$lib/assets/images/gideon-animated.webp";
+	import Spotify from "./Spotify.svelte";
+	connect();
+</script>
+
+<section class="hero">
+	<div class="pfp">
+		<img src={gideon} alt="" width="125px" />
+	</div>
+
+	<h1>Hi there 👋, my name is Rogue.</h1>
+
+	<p class="intro">
+		yet another cs student. trying to make something out of himself. will he succeed? probably not.
+		does he know? probably not. will he try? maybe...
+	</p>
+
+	<Spotify />
+</section>
+
+<style>
+	h1 {
+		font-weight: bold;
+		text-align: center;
+	}
+
+	p {
+		font-size: 1.25rem;
+	}
+
+	.hero {
+		height: 100dvh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 32px;
+	}
+
+	.pfp {
+		display: flex;
+		justify-content: center;
+	}
+
+	.pfp img {
+		border-radius: 16px;
+		border: 2px solid var(--border-primary);
+	}
+</style>
