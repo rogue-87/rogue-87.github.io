@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Header from "$lib/components/Header.svelte";
 	import Footer from "$lib/components/Footer.svelte";
 	import "$lib/style/abstracts/_index.css";
@@ -15,7 +15,7 @@
 
 <style>
 	:root {
-		--global-width: 60vw;
+		--global-width: 50vw;
 	}
 
 	main {

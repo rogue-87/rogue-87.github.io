@@ -27,6 +27,6 @@
 		border-top: 1px solid var(--fg-accent);
 		display: flex;
 		flex-direction: column;
-		gap: 16px;
+		gap: 8px;
 	}
 </style>

@@ -1,13 +1,12 @@
 <script lang="ts">
-	import BlogCard from "$lib/components/BlogCard.svelte";
+	import BlogPost from "$lib/components/BlogPost.svelte";
 	let { data } = $props();
 </script>
 
-<h1>blogs</h1>
-<section>
+<section style:padding-top="80px">
 	<ul>
 		{#each data.posts as post}
-			<BlogCard {post} />
+			<BlogPost {post} />
 		{/each}
 	</ul>
 </section>

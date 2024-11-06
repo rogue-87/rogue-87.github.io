@@ -1,7 +1,7 @@
 <script>
 </script>
 
-<section class="about-content">
+<section style:padding-top="80px">
 	<p>
 		ah! so you're actually interested in reading a random guy's web page that you know nothing
 		about? cool!
@@ -37,7 +37,7 @@
 
 	<br />
 
-	<div class="hobbies-container">
+	<div class="hobbies">
 		<div>
 			<p>
 				well not really, I used to have interest in pixel art, and it died the moment I got into
@@ -53,7 +53,6 @@
 				even tho I like aseprite, I've been transitioning to pixelorama. why leave aseprite for
 				pixelorama? you may ask. Well, because I don't want to compile aseprite from source :p
 			</p>
-
 			<br />
 		</div>
 		<img src="/images/biker.png" alt="biker pixel" />
@@ -67,11 +66,7 @@
 		font-size: 1.25rem;
 	}
 
-	.about-content {
-		padding: 80px 0;
-	}
-
-	.hobbies-container {
+	.hobbies {
 		display: flex;
 		& p {
 			padding-right: 12px;
@@ -79,18 +74,22 @@
 
 		& img {
 			border-radius: 16px;
-			width: 350px;
-			height: 350px;
+			min-width: 350px;
+			min-height: 350px;
 		}
 	}
 
-	@media screen and (320px <= width <= 860px) {
-		.hobbies-container {
+	@media screen and (320px <= width <= 1080px) {
+		.hobbies {
 			flex-direction: column;
 
+			& p {
+				padding-right: initial;
+			}
+
 			& img {
-				width: auto;
-				height: auto;
+				width: 100%;
+				height: 100%;
 			}
 		}
 	}

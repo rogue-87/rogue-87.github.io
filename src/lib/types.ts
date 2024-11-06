@@ -4,11 +4,11 @@ export type Post = {
 	desc: string;
 	image?: string;
 	date: string;
-	categories: string[];
+	tags?: string[];
 	published: boolean;
 };
 
-export interface Spotify {
+export type Spotify = {
 	track_id: string;
 	timestamps: {
 		start: number;
@@ -18,16 +18,16 @@ export interface Spotify {
 	artist: string;
 	album_art_url: string;
 	album: string;
-}
+};
 
-export interface DiscordUser {
+export type DiscordUser = {
 	id: string;
 	username: string;
 	avatar: string;
-    discriminator: string;
+	discriminator: string;
 	global_name: string;
 	display_name: string;
-}
+};
 
 export interface Presence {
 	kv: object;
