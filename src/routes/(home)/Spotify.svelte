@@ -1,5 +1,9 @@
 <script>
 	import { presenceData } from "../../stores/websocket.svelte";
+	let isMarquee = $state();
+	$effect(() => {
+		isMarquee = $presenceData.spotify?.song && $presenceData.spotify.song.length > 20;
+	});
 </script>
 
 <div class="spotify">
@@ -21,7 +25,11 @@
 					{$presenceData.spotify.song}
 				</a>
 			</div>
-			<div class="artist">{$presenceData.spotify.artist.replaceAll(";", ",")}</div>
+			<div class="artist">
+				<div class={isMarquee ? "marquee" : ""}>
+					<div>{$presenceData.spotify.artist.replaceAll(";", ",")}</div>
+				</div>
+			</div>
 		</div>
 	{:else}
 		<div class="album">
@@ -56,7 +64,6 @@
 	.album {
 		display: flex;
 		align-items: center;
-		margin-right: 12px;
 
 		& > svg {
 			border-radius: 16px;
@@ -71,5 +78,54 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		padding: 8px;
+		overflow-x: hidden;
+		width: 100%;
+	}
+
+	.song {
+		overflow-x: hidden;
+		& > a {
+			display: inline-block;
+			width: max-content;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.marquee div {
+			animation-iteration-count: 1;
+			animation-duration: 0.01;
+			width: auto;
+			padding-left: 0;
+		}
+	}
+
+	@media screen and (320px <= width <= 1080px) {
+		.marquee {
+			overflow-x: hidden;
+		}
+
+		.marquee > * {
+			display: inline-block;
+			width: max-content;
+
+			padding-left: 100%;
+			/* show the marquee just outside the paragraph */
+			will-change: transform;
+			animation: marquee 12s linear infinite;
+
+			&:hover {
+				animation-play-state: paused;
+			}
+		}
+
+		@keyframes marquee {
+			0% {
+				transform: translate(-100%, 0);
+			}
+			100% {
+				transform: translate(0, 0);
+			}
+		}
 	}
 </style>
