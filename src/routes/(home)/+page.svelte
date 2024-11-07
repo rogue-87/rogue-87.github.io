@@ -5,6 +5,10 @@
 	connect();
 </script>
 
+<svelte:head>
+	<title>home</title>
+</svelte:head>
+
 <section class="hero">
 	<div class="pfp">
 		<img src={gideon} alt="" width="125px" />

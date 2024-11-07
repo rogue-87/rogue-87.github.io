@@ -30,7 +30,4 @@
 			--global-width: 90vw;
 		}
 	}
-
-	@media screen and (320px <= width <= 480px) and (orientation: landscape) {
-	}
 </style>

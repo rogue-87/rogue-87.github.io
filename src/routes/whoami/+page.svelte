@@ -1,6 +1,10 @@
 <script>
 </script>
 
+<svelte:head>
+	<title>whoami</title>
+</svelte:head>
+
 <section style:padding-top="80px">
 	<p>
 		ah! so you're actually interested in reading a random guy's web page that you know nothing

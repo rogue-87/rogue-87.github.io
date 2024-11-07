@@ -3,6 +3,10 @@
 	let { data } = $props();
 </script>
 
+<svelte:head>
+	<title>blog</title>
+</svelte:head>
+
 <section style:padding-top="80px">
 	<ul>
 		{#each data.posts as post}
