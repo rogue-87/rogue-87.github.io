@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Header from "$lib/components/Header.svelte";
-	import Footer from "$lib/components/Footer.svelte";
+	import Header from "$lib/layout/Header.svelte";
+	import Footer from "$lib/layout/Footer.svelte";
 	import "$lib/style/abstracts/_index.css";
 	let { children } = $props();
 </script>
