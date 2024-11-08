@@ -11,7 +11,7 @@
 
 <section class="hero">
 	<div class="pfp">
-		<img src={gideon} alt="" width="125px" />
+		<img src={gideon} alt="gideon" width="125px" height="125px" />
 	</div>
 
 	<h1>Hi there 👋, my name is Rogue.</h1>
