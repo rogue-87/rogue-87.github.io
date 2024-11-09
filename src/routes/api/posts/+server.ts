@@ -29,4 +29,5 @@ export async function GET() {
 	return json(posts);
 }
 
+// NOTE: Page Settings 󰒓
 export const prerender = true;

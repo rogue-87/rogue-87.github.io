@@ -34,3 +34,6 @@ export async function GET({ fetch }: ServerLoadEvent) {
 
 	return new Response(xml, { headers });
 }
+
+// NOTE: Page Settings 󰒓
+export const prerender = true;
