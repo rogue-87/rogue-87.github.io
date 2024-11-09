@@ -1,5 +1,4 @@
 <script>
-	let { form } = $props();
 </script>
 
 <svelte:head>
@@ -14,7 +13,6 @@
 		<textarea           name="message"  placeholder="message"   value="" required></textarea>
 		<button type="submit">send</button>
 	</form>
-	<p>{form?.success}</p>
 </div>
 
 <style>

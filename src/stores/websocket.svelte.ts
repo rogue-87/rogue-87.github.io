@@ -17,7 +17,7 @@ export const presenceData: Writable<Presence> = writable({} as Presence);
 
 export function connect() {
 	const socket = new WebSocket(WS_URL);
-	let hearbeat: number | undefined;
+	let hearbeat: NodeJS.Timeout;
 	socket.onopen = () => {
 		socket.send(JSON.stringify({ op: 2, d: { subscribe_to_id: USER_ID } }));
 
