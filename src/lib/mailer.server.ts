@@ -1,13 +1,14 @@
+import { EMAIL, PASS } from "$env/static/private";
 import nodemailer from "nodemailer";
 import type Mail from "nodemailer/lib/mailer";
 
 const transporter = nodemailer.createTransport({
-	host: undefined,
+	host: "smtp.gmail.com",
 	port: 587,
 	secure: false, // true for port 465, false for other ports
 	auth: {
-		user: undefined,
-		pass: undefined
+		user: EMAIL,
+		pass: PASS
 	}
 });
 

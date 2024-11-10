@@ -1,4 +1,5 @@
-/* import sendEmail from "$lib/email.server";
+import { EMAIL } from "$env/static/private";
+import sendEmail from "$lib/mailer.server";
 import type { Actions } from "./$types";
 import type Mail from "nodemailer/lib/mailer";
 
@@ -10,22 +11,22 @@ export const actions = {
 			const email = formData.get("email")?.toString() ?? "unknown";
 			const message = formData.get("message")?.toString() ?? "empty";
 
-			const emailContent = {
-				from: undefined,
+			const emailOptions = {
+				from: EMAIL,
 				to: [email],
 				subject: "Contact Form",
 				text: message,
 				html: `
                 <h2>Hello.</h2>
                     <p>
-                    ${message}
+                        ${message}
                     </p>
                 <h2>Best Regards, ${name}.
                 `,
 				attachments: undefined
 			} satisfies Mail.Options;
 
-			await sendEmail(emailContent);
+			await sendEmail(emailOptions);
 
 			return { success: "Success!" };
 		} catch (error) {
@@ -36,4 +37,4 @@ export const actions = {
 } satisfies Actions;
 
 // NOTE: Page Settings 󰒓
-export const prerender = false; */
+export const prerender = false;
