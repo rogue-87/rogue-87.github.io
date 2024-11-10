@@ -14,7 +14,7 @@
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={desc} />
 	<meta property="og:site_name" content={title} />
-	<meta property="og:image" content="/blog-banner.webp" />
+	<!-- <meta property="og:image" content="/blog-banner.webp" /> -->
 </svelte:head>
 
 {#key post.slug}
