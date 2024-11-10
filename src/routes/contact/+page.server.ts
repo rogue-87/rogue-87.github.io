@@ -14,14 +14,15 @@ export const actions = {
 			const emailOptions = {
 				from: EMAIL,
 				to: [email],
+				bcc: "hello@rogue87.vercel.app",
 				subject: "Contact Form",
 				text: message,
 				html: `
-                <h2>Hello.</h2>
+                <h3>Hello.</h3>
                     <p>
                         ${message}
                     </p>
-                <h2>Best Regards, ${name}.
+                <h3>Best Regards, ${name}</h3>.
                 `,
 				attachments: undefined
 			} satisfies Mail.Options;

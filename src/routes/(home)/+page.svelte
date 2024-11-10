@@ -1,8 +1,10 @@
 <script>
-	// import { connect } from "../../stores/websocket.svelte";
+	import { connect } from "../../stores/websocket.svelte";
 	import gideon from "$lib/assets/images/gideon-animated.webp";
 	import Spotify from "./Spotify.svelte";
-	// connect();
+	$effect(() => {
+		connect();
+	});
 </script>
 
 <svelte:head>
