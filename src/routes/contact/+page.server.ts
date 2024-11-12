@@ -1,35 +1,50 @@
-import { EMAIL } from "$env/static/private";
+import { HCAPTCHA_SECRET_KEY, VERIFY_URL } from "$env/static/private";
 import sendEmail from "$lib/mailer.server";
 import type { Actions } from "./$types";
 import type Mail from "nodemailer/lib/mailer";
 
 export const actions = {
-	default: async ({ request }) => {
+	default: async ({ request, getClientAddress }) => {
 		try {
 			const formData = await request.formData();
-			const name = formData.get("name")?.toString() ?? "unknown";
-			const email = formData.get("email")?.toString() ?? "unknown";
-			const message = formData.get("message")?.toString() ?? "empty";
+			const params = new URLSearchParams({
+				secret: HCAPTCHA_SECRET_KEY,
+				response: formData.get("h-captcha-response")?.toString() ?? "no response",
+				remoteip: getClientAddress()
+			});
 
-			const emailOptions = {
-				from: EMAIL,
-				to: [email],
-				bcc: "hello@rogue87.vercel.app",
-				subject: "Contact Form",
-				text: message,
-				html: `
-                <h3>Hello.</h3>
-                    <p>
-                        ${message}
-                    </p>
-                <h3>Best Regards, ${name}</h3>.
-                `,
-				attachments: undefined
-			} satisfies Mail.Options;
+			const captchaResult = await fetch(VERIFY_URL, {
+				method: "POST",
+				body: params
+			});
 
-			await sendEmail(emailOptions);
+			const data = await captchaResult.json();
+			if (data.success) {
+				const name = formData.get("name")?.toString() ?? "unknown";
+				const email = formData.get("email")?.toString() ?? "unknown";
+				const message = formData.get("message")?.toString() ?? "empty";
+				const emailOptions = {
+					from: "onboarding@resend.dev",
+					to: "delivered@resend.dev",
+					subject: "Contact Form",
+					text: message,
+					html: `
+                        <h3>Email: ${email}<h3>
+                        <h3>Date: ${new Date().toLocaleString()}</h3>
+                            <p>
+                                ${message}
+                            </p>
+                        <h3>Best Regards, ${name}</h3>.
+                    `,
+					attachments: undefined
+				} satisfies Mail.Options;
 
-			return { success: "Success!" };
+				await sendEmail(emailOptions);
+
+				return { success: true };
+			} else {
+				return { success: false };
+			}
 		} catch (error) {
 			console.error("something went wrong...");
 			console.error(error);

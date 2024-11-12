@@ -10,4 +10,6 @@ declare global {
 	}
 }
 
+import "@hcaptcha/types";
+
 export {};

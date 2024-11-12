@@ -17,12 +17,12 @@
 		min-height: 100dvh;
 	}
 
-	@media screen and (320px <= width <= 980px) {
+	@media screen and (240px <= width <= 980px) {
 		.layout {
 			grid-template-columns: 90vw;
 			grid-template-rows: 100vh 40vh;
 			place-content: center;
-            padding-bottom: 80px;
+			padding: 80px 0;
 
 			grid-template-areas:
 				"form"

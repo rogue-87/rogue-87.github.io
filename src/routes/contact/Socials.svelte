@@ -169,7 +169,7 @@
 
 	@media screen and (320px <= width <= 980px) {
 		.layout {
-			height: 40vh;
+			height: auto;
 		}
 	}
 </style>

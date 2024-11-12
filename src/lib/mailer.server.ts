@@ -1,21 +1,24 @@
-import { EMAIL, PASS } from "$env/static/private";
+import { PASS } from "$env/static/private";
 import nodemailer from "nodemailer";
 import type Mail from "nodemailer/lib/mailer";
 
 const transporter = nodemailer.createTransport({
-	host: "smtp.gmail.com",
-	port: 587,
-	secure: false, // true for port 465, false for other ports
+	host: "smtp.resend.com",
+	secure: true,
+	port: 465,
 	auth: {
-		user: EMAIL,
+		user: "resend",
 		pass: PASS
 	}
 });
 
 transporter.verify((error, success) => {
 	if (error) {
+		console.error("could not verify mailing service");
 		console.error(error);
 	} else {
+		console.log("mailing service verified successfully");
+		console.log(success);
 	}
 });
 
