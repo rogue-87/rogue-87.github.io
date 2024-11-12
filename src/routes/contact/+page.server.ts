@@ -1,4 +1,4 @@
-import { HCAPTCHA_SECRET_KEY, VERIFY_URL } from "$env/static/private";
+import { HCAPTCHA_SECRET_KEY } from "$env/static/private";
 import sendEmail from "$lib/mailer.server";
 import type { Actions } from "./$types";
 import type Mail from "nodemailer/lib/mailer";
@@ -13,7 +13,7 @@ export const actions = {
 				remoteip: getClientAddress()
 			});
 
-			const captchaResult = await fetch(VERIFY_URL, {
+			const captchaResult = await fetch("https://api.hcaptcha.com/siteverify", {
 				method: "POST",
 				body: params
 			});
