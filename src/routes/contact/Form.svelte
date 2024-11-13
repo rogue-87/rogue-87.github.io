@@ -8,7 +8,7 @@
 			window.hcaptcha.render("hcaptcha", {
 				sitekey: "e7f00e3c-8cfc-48dc-805e-971812ca4fd4",
 				theme: "dark",
-				callback(response) {
+				callback() {
 					const captchaElement = document.getElementById("hcaptcha");
 					captchaElement?.setAttribute("hidden", "");
 				}
@@ -27,13 +27,14 @@
 
 <style>
 	form {
+		grid-area: form;
 		display: flex;
 		flex-direction: column;
 		gap: 16px;
 		background-color: var(--bg-primary-dark);
 		padding: 16px;
 		border-radius: 16px;
-		min-height: 55vh;
+		min-height: 75%;
 		height: auto;
 	}
 
@@ -66,12 +67,6 @@
 
 		&:hover {
 			background-color: var(--bg-primary);
-		}
-	}
-
-	@media screen and (320px <= width <= 980px) {
-		form {
-			min-height: 75vh;
 		}
 	}
 </style>

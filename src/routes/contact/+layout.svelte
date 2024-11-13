@@ -11,18 +11,18 @@
 		display: grid;
 		justify-content: center;
 		align-items: center;
+		grid-template-rows: calc(100dvh - var(--header-height));
 		grid-template-columns: 40vw 35vw;
 		grid-template-areas: "form socials";
-		gap: 32px;
-		min-height: 100dvh;
+		gap: 24px;
 	}
 
 	@media screen and (240px <= width <= 980px) {
 		.layout {
 			grid-template-columns: 90vw;
-			grid-template-rows: 100vh 40vh;
-			place-content: center;
-			padding: 80px 0;
+			align-items: unset;
+			grid-template-rows: 500px 400px;
+			padding: 24px 0;
 
 			grid-template-areas:
 				"form"

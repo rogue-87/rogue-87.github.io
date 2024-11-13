@@ -7,7 +7,7 @@
 
 <Header />
 
-<main>
+<main class="push-under-header">
 	{@render children()}
 </main>
 

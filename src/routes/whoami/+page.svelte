@@ -5,7 +5,7 @@
 	<title>whoami</title>
 </svelte:head>
 
-<section style:padding-top="80px">
+<section style:padding="24px 0">
 	<p>
 		ah! so you're actually interested in reading a random guy's web page that you know nothing
 		about? cool!
@@ -92,7 +92,6 @@
 			}
 
 			& img {
-
 				min-width: 100%;
 				min-height: 100%;
 			}

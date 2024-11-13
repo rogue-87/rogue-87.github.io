@@ -37,7 +37,7 @@
 	}
 
 	.hero {
-		min-height: 100dvh;
+		min-height: calc(100dvh - var(--header-height));
 		height: auto;
 		display: flex;
 		flex-direction: column;
@@ -57,7 +57,7 @@
 
 	@media screen and (600px <= width <= 900px) and (orientation: landscape) {
 		.hero {
-			padding: 80px 0;
+			padding: 24px 0;
 		}
 	}
 </style>

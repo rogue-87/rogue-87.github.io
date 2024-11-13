@@ -33,7 +33,7 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		height: 65px;
+		height: var(--header-height);
 		width: var(--global-width);
 		margin: 0 auto;
 	}

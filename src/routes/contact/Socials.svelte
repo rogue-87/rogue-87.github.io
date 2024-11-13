@@ -1,4 +1,4 @@
-<div class="layout">
+<div class="socials-layout">
 	<div class="chats">
 		<div class="chat">
 			<!-- tabler:mail-filled -->
@@ -104,11 +104,12 @@
 		--padding: 16px;
 	}
 
-	.layout {
+	.socials-layout {
+		grid-area: socials;
 		display: flex;
 		flex-direction: column;
-		min-height: auto;
-		height: 55vh;
+		min-height: 75%;
+		height: auto;
 		background: var(--bg-primary-light);
 		border-radius: 16px;
 		padding: var(--padding);
@@ -164,12 +165,6 @@
 
 		&:hover {
 			background-color: var(--bg-primary);
-		}
-	}
-
-	@media screen and (320px <= width <= 980px) {
-		.layout {
-			height: auto;
 		}
 	}
 </style>

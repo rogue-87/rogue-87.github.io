@@ -7,7 +7,7 @@
 	<title>blog</title>
 </svelte:head>
 
-<section style:padding-top="80px">
+<section style:padding="24px 0">
 	<ul>
 		{#each data.posts as post}
 			<BlogPost {post} />

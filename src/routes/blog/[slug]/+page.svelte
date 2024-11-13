@@ -3,6 +3,7 @@
 	import { url, title } from "$lib/config";
 
 	let { data } = $props();
+	import "$lib/style/abstracts/util.css";
 </script>
 
 <svelte:head>
@@ -19,23 +20,25 @@
 	<meta property="og:image" content={data.meta.image} />
 </svelte:head>
 
-<article style:padding-top="80px">
-	<hgroup>
-		<h1>{data.meta.title}</h1>
-		<!-- <img src={data.meta.image} alt="blog banner" /> -->
-		<p class="post-date">Published at {formatDate(data.meta.date)}</p>
-	</hgroup>
+<div>
+	<article style:padding="24px 0">
+		<hgroup>
+			<h1>{data.meta.title}</h1>
+			<!-- <img src={data.meta.image} alt="blog banner" /> -->
+			<p class="post-date">Published at {formatDate(data.meta.date)}</p>
+		</hgroup>
 
-	<div>
-		{#each data.meta.tags as tag}
-			<span>&num;{tag}</span>
-		{/each}
-	</div>
+		<div>
+			{#each data.meta.tags as tag}
+				<span>&num;{tag}</span>
+			{/each}
+		</div>
 
-	<div class="content">
-		{@render data.content()}
-	</div>
-</article>
+		<div class="content">
+			{@render data.content()}
+		</div>
+	</article>
+</div>
 
 <style>
 	hgroup,
@@ -57,11 +60,5 @@
 	.post-date {
 		text-align: end;
 		color: var(--fg-primary-dark);
-	}
-
-	@media screen and (320px <= width <= 1080px) {
-		.content {
-			margin-bottom: 16px;
-		}
 	}
 </style>
