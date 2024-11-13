@@ -19,7 +19,7 @@
 	}
 
 	main {
-		min-height: 100dvh;
+		min-height: calc(100svh - var(--header-height));
 		height: auto;
 		width: var(--global-width);
 		margin: 0 auto;

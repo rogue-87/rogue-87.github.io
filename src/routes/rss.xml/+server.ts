@@ -1,4 +1,4 @@
-import * as config from "$lib/config";
+import * as config from "$lib/site-config";
 import type { Post } from "$lib/types";
 import type { ServerLoadEvent } from "@sveltejs/kit";
 

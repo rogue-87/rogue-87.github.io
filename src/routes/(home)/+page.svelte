@@ -2,6 +2,8 @@
 	import { connect } from "../../stores/websocket.svelte";
 	import gideon from "$lib/assets/images/gideon-animated.webp";
 	import Spotify from "./Spotify.svelte";
+	import { title, author, url, desc } from "$lib/site-config";
+
 	$effect(() => {
 		connect();
 	});
@@ -9,6 +11,15 @@
 
 <svelte:head>
 	<title>home</title>
+
+	<meta property="author" content={author} />
+	<meta name="description" content={desc} />
+
+	<meta property="og:title" content={title} />
+	<meta property="og:site_name" content={author} />
+	<meta property="og:description" content={desc} />
+	<meta property="og:url" content={url} />
+	<meta property="og:image" content="/images/gideon-graves.png" />
 </svelte:head>
 
 <section class="hero">

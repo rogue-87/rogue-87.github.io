@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { formatDate } from "$lib/utils";
-	import { url, title } from "$lib/config";
+	import { url, title } from "$lib/site-config";
 
 	let { data } = $props();
 	import "$lib/style/abstracts/util.css";

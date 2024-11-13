@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { formatDate } from "$lib/utils";
-	import { title, desc, url } from "$lib/config";
+	import { title, desc, url } from "$lib/site-config";
 	import type { Post } from "$lib/types";
 
 	let { post }: { post: Post } = $props();
