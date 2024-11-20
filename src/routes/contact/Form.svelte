@@ -1,9 +1,8 @@
 <script lang="ts">
 	import { browser } from "$app/environment";
 	import { enhance } from "$app/forms";
-	import { onMount } from "svelte";
 
-	onMount(() => {
+	$effect(() => {
 		if (browser) {
 			window.hcaptcha.render("hcaptcha", {
 				sitekey: "e7f00e3c-8cfc-48dc-805e-971812ca4fd4",
