@@ -17,9 +17,9 @@ async function getPosts() {
 		}
 	}
 
-	posts = posts.sort((first, second) => {
-		return new Date(second.date).getTime() - new Date(first.date).getTime();
-	});
+	posts = posts.sort(
+		(first, second) => new Date(second.date).getTime() - new Date(first.date).getTime()
+	);
 
 	return posts;
 }
@@ -28,6 +28,3 @@ export async function GET() {
 	const posts = await getPosts();
 	return json(posts);
 }
-
-// NOTE: Page Settings 󰒓
-export const prerender = true;
