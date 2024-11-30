@@ -2,14 +2,19 @@
 	import Header from "$lib/layout/Header.svelte";
 	import Footer from "$lib/layout/Footer.svelte";
 	import "$lib/style/abstracts/_index.css";
+	import { fade } from "svelte/transition";
+	import { page } from "$app/stores";
+
 	let { children } = $props();
 </script>
 
 <Header />
 
-<main class="push-under-header">
-	{@render children()}
-</main>
+{#key $page.url.pathname}
+	<main class="push-under-header" in:fade>
+		{@render children()}
+	</main>
+{/key}
 
 <Footer />
 

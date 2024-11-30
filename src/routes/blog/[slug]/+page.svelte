@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { formatDate } from "$lib/utils";
 	import { url, title } from "$lib/site-config";
-
-	let { data } = $props();
+	import type { PageData } from "./$types";
 	import "$lib/style/abstracts/util.css";
+
+	let { data }: { data: PageData } = $props();
 </script>
 
 <svelte:head>
