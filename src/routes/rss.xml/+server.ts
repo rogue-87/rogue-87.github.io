@@ -19,11 +19,11 @@ export async function GET({ fetch }: ServerLoadEvent) {
 					.map(
 						(post) => `
 						<item>
-							<title>${post.title}</title>
+							<title type="html">${post.title}</title>
+							<link href=${config.url}/blog/${post.slug} rel="alternate" type="text/html" title=${post.title} />
 							<description>${post.desc}</description>
-							<link>${config.url}/blog/${post.slug}</link>
-							<guid isPermaLink="true">${config.url}/blog/${post.slug}</guid>
-							<pubDate>${new Date(post.date).toUTCString()}</pubDate>
+							<published>${new Date(post.date).toUTCString()}</published>
+							<id>${config.url}/blog/${post.slug}</id>
 						</item>
 					`
 					)
