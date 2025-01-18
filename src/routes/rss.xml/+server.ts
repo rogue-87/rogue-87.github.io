@@ -20,7 +20,7 @@ export async function GET({ fetch }: ServerLoadEvent) {
 						(post) => `
 						<item>
 							<title type="html">${post.title}</title>
-							<link href=${config.url}/blog/${post.slug} rel="alternate" type="text/html" title=${post.title} />
+							<link href="${config.url}/blog/${post.slug}" rel="alternate" type="text/html" title="${post.title}" />
 							<description>${post.desc}</description>
 							<published>${new Date(post.date).toUTCString()}</published>
 							<id>${config.url}/blog/${post.slug}</id>
