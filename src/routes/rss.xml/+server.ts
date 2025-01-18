@@ -21,8 +21,8 @@ export async function GET({ fetch }: ServerLoadEvent) {
 						<item>
 							<title>${post.title}</title>
 							<description>${post.desc}</description>
-							<link>${config.url}/${post.slug}</link>
-							<guid isPermaLink="true">${config.url}/${post.slug}</guid>
+							<link>${config.url}/blog/${post.slug}</link>
+							<guid isPermaLink="true">${config.url}/blog/${post.slug}</guid>
 							<pubDate>${new Date(post.date).toUTCString()}</pubDate>
 						</item>
 					`
