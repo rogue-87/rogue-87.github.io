@@ -67,7 +67,7 @@
 
 		& > svg {
 			border-radius: 16px;
-			padding: 28px;
+			padding: 32px;
 			background-color: var(--bg-primary-light);
 			background-size: cover;
 			background-position: center;

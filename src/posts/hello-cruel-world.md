@@ -2,7 +2,6 @@
 title: "Hello Cruel World!"
 desc: "Finally! my actual first post!"
 date: "2024-08-03"
-# image: /
 tags: []
 published: true
 ---

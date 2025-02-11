@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { formatDate } from "$lib/utils";
 	import { title, desc, url } from "$lib/site-config";
-	import type { Post } from "$lib/types";
+	import type { PostMetadata } from "$lib/types";
 
-	let { post }: { post: Post } = $props();
+	let { post }: { post: PostMetadata } = $props();
 </script>
 
 <svelte:head>

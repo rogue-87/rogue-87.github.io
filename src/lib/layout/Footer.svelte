@@ -1,6 +1,3 @@
-<script lang="ts">
-</script>
-
 <footer>
 	<p>
 		font name is "Quantico", and is licensed under

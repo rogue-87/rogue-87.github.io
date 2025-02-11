@@ -1,8 +1,13 @@
 import { json } from "@sveltejs/kit";
-import type { Post } from "$lib/types";
+import type { PostMetadata } from "$lib/types";
+
+export async function GET() {
+	const posts = await getPosts();
+	return json(posts);
+}
 
 async function getPosts() {
-	let posts: Post[] = [];
+	let posts: PostMetadata[] = [];
 
 	const paths = import.meta.glob("/src/posts/*.md", { eager: true });
 
@@ -11,8 +16,8 @@ async function getPosts() {
 		const slug = path.split("/").at(-1)?.replace(".md", "");
 
 		if (file && typeof file === "object" && "metadata" in file && slug) {
-			const metadata = file.metadata as Omit<Post, "slug">;
-			const post = { ...metadata, slug } satisfies Post;
+			const metadata = file.metadata as Omit<PostMetadata, "slug">;
+			const post = { ...metadata, slug } satisfies PostMetadata;
 			if (post.published) posts.push(post);
 		}
 	}
@@ -22,9 +27,4 @@ async function getPosts() {
 	);
 
 	return posts;
-}
-
-export async function GET() {
-	const posts = await getPosts();
-	return json(posts);
 }

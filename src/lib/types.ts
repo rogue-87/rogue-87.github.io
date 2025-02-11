@@ -1,13 +1,3 @@
-export type Post = {
-	title: string;
-	slug: string;
-	desc: string;
-	image?: string;
-	date: string;
-	tags?: string[];
-	published: boolean;
-};
-
 export type Spotify = {
 	track_id: string;
 	timestamps: {
@@ -40,3 +30,19 @@ export interface Presence {
 	active_on_discord_mobile: boolean;
 	listening_to_spotify: boolean;
 }
+
+export type PostMetadata = {
+	title: string;
+	slug: string;
+	desc: string;
+	image?: string;
+	caption?: string;
+	date: string;
+	tags?: string[];
+	published: boolean;
+};
+
+export type PostLink = {
+	metadata: PostMetadata;
+	postPath: string;
+};

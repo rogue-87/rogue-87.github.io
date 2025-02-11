@@ -14,11 +14,9 @@ const transporter = nodemailer.createTransport({
 
 transporter.verify((error, success) => {
 	if (error) {
-		console.error("could not verify mailing service");
-		console.error(error);
+		console.error(`Mailer Service: ${error}`);
 	} else {
-		console.log("mailing service verified successfully");
-		console.log(success);
+		console.log(`Mailer Service: ${success}`);
 	}
 });
 

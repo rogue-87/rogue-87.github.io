@@ -100,10 +100,6 @@
 </div>
 
 <style>
-	:root {
-		--padding: 16px;
-	}
-
 	.socials-layout {
 		grid-area: socials;
 		display: flex;
@@ -112,7 +108,7 @@
 		height: auto;
 		background: var(--bg-primary-light);
 		border-radius: 16px;
-		padding: var(--padding);
+		padding: 16px;
 	}
 
 	.chats {

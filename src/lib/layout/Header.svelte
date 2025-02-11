@@ -1,20 +1,20 @@
 <script lang="ts">
-	import { page } from "$app/stores";
+	import { page } from "$app/state";
 </script>
 
 <header>
 	<ul>
 		<li>
-			<a href="/" class:selected={$page.url.pathname === "/"}>home</a>
+			<a href="/" class:selected={page.url.pathname === "/"}>home</a>
 		</li>
 		<li>
-			<a href="/whoami" class:selected={$page.url.pathname === "/whoami"}>whoami</a>
+			<a href="/whoami" class:selected={page.url.pathname === "/whoami"}>whoami</a>
 		</li>
 		<li>
-			<a href="/blog" class:selected={$page.url.pathname === "/blog"}>blog</a>
+			<a href="/blog" class:selected={page.url.pathname === "/blog"}>blog</a>
 		</li>
 		<li>
-			<a href="/contact" class:selected={$page.url.pathname === "/contact"}>contact</a>
+			<a href="/contact" class:selected={page.url.pathname === "/contact"}>contact</a>
 		</li>
 	</ul>
 </header>

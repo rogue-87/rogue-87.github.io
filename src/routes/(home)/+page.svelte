@@ -66,7 +66,7 @@
 		border: 2px solid var(--border-primary);
 	}
 
-	@media screen and (600px <= width <= 900px) and (orientation: landscape) {
+	@media screen and (600px <= width <= 915px) and (orientation: landscape) {
 		.hero {
 			padding: 24px 0;
 		}
