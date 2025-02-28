@@ -1,6 +1,3 @@
-<script>
-</script>
-
 <svelte:head>
 	<title>whoami</title>
 </svelte:head>
@@ -14,12 +11,13 @@
 	<br />
 
 	<p>
-		My name is Ali. I'm a {new Date().getFullYear() - 2003} years old guy who happens to know a thing
-		or two about computers. Currently, I'm learning front-end web development. My first programming language
-		was Java, though I didn't do much with it, mainly because that was what my university offered. Later
-		on, I learned JavaScript, and then Lua(because neovim, of course). I kinda lost track of where I
-		was when I fell into the Linux rabbit hole, but now I'm back on track and resuming my web develpoment
-		journey.
+		My name is Ali. I'm a 21 years old guy who happens to know a thing or two about computers.
+		Currently, <strike style="color: black;">I'm learning front-end web development</strike>
+		learning about compilers and low level programming. My first programming language was Java, though
+		I didn't do much with it, mainly because that was what my university offered. Later on, I learned
+		JavaScript, and then Lua(because neovim, of course). I kinda lost track of where I was when I fell
+		into the Linux rabbit hole, but now I'm back on track and resuming my
+		<strike style="color: black;">web develpoment</strike> journey into the unknown.
 	</p>
 
 	<br />
