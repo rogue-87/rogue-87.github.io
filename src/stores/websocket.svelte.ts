@@ -1,56 +1,63 @@
 import { writable, type Writable } from "svelte/store";
 import type { Presence } from "$lib/types";
 
+export const presenceData: Writable<Presence> = writable({} as Presence);
+
 type OpCode = 0 | 1 | 2 | 3;
 type EventType = "INIT_STATE" | "PRESENCE_UPDATE";
-interface Data {
+type Data = {
 	op: OpCode;
 	seq: 1 | 2;
 	t: EventType;
 	d: Presence;
-}
-const WS_URL = "wss://api.lanyard.rest/socket";
-const WS_HEARBEAT = 30e3;
-export const USER_ID = "369982847496355841";
+};
 
-export const presenceData: Writable<Presence> = writable({} as Presence);
+export class LanyardSocket extends WebSocket {
+	private readonly userId: string;
+	private hearbeat?: NodeJS.Timeout;
+	private heartbeatInterval: number;
 
-export function connect() {
-	const socket = new WebSocket(WS_URL);
-	let hearbeat: NodeJS.Timeout;
-	socket.onopen = () => {
-		socket.send(JSON.stringify({ op: 2, d: { subscribe_to_id: USER_ID } }));
+	constructor(userId: string, heartbeatInterval?: number) {
+		super("wss://api.lanyard.rest/socket");
+		this.userId = userId;
+		this.heartbeatInterval = heartbeatInterval ? heartbeatInterval : 30e3;
+	}
 
-		hearbeat = setInterval(() => {
-			if (socket.readyState === WebSocket.OPEN) {
-				socket.send(JSON.stringify({ op: 3 }));
+	connect(): { disconnect: () => void } {
+		this.onopen = () => {
+			this.send(JSON.stringify({ op: 2, d: { subscribe_to_id: this.userId } }));
+
+			this.hearbeat = setInterval(() => {
+				if (this.readyState === WebSocket.OPEN) {
+					this.send(JSON.stringify({ op: 3 }));
+				}
+			}, this.heartbeatInterval);
+		};
+
+		this.onmessage = (event: MessageEvent) => {
+			const data: Data = JSON.parse(event.data);
+			if (data.t === "INIT_STATE" || data.t === "PRESENCE_UPDATE") {
+				presenceData.update((v) => {
+					v = data.d;
+					return v;
+				});
 			}
-		}, WS_HEARBEAT);
-	};
+		};
 
-	socket.onmessage = (event) => {
-		const data: Data = JSON.parse(event.data);
-		if (data.t === "INIT_STATE" || data.t === "PRESENCE_UPDATE") {
-			presenceData.update((v) => {
-				v = data.d;
-				return v;
-			});
-		}
-	};
+		this.onerror = (event: Event) => {
+			console.error("WebSocket error:", event);
+			clearInterval(this.hearbeat);
+		};
 
-	socket.onerror = (error) => {
-		console.error("WebSocket error:", error);
-		clearInterval(hearbeat);
-	};
+		this.onclose = (event: CloseEvent) => {
+			console.log(`WebSocket connection closed: ${event.code} ${event.reason}`);
+		};
 
-	socket.onclose = (event) => {
-		console.log(`WebSocket connection closed: ${event.code} ${event.reason}`);
-	};
-
-	return {
-		disconnect: () => {
-			clearInterval(hearbeat);
-			socket.close();
-		}
-	};
+		return {
+			disconnect: () => {
+				clearInterval(this.hearbeat);
+				this.close();
+			}
+		};
+	}
 }
