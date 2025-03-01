@@ -18,6 +18,9 @@ importers:
         specifier: ^6.10.0
         version: 6.10.0
     devDependencies:
+      '@eslint/js':
+        specifier: ^9.21.0
+        version: 9.21.0
       '@hcaptcha/types':
         specifier: ^1.0.4
         version: 1.0.4
