@@ -1,13 +1,12 @@
 <script>
 	import { LanyardSocket } from "../../stores/websocket.svelte";
-	import gideon from "$lib/assets/images/gideon-animated.webp";
 	import Spotify from "./Spotify.svelte";
+	import gideon from "$lib/assets/images/gideon-animated.webp";
 	import { title, author, url, desc } from "$lib/site-config";
 
 	$effect(() => {
-		const socket = new LanyardSocket("369982847496355841")
-			.connect();
-		return socket.disconnect
+		const socket = new LanyardSocket("369982847496355841").connect();
+		return socket.disconnect;
 	});
 </script>
 
