@@ -1,3 +1,7 @@
+<script>
+	import { email } from "$lib/site-config";
+</script>
+
 <div class="socials-layout">
 	<div class="chats">
 		<div class="chat">
@@ -13,7 +17,7 @@
 				</g>
 			</svg>
 
-			<a href="mailto:rogue87.dev@gmail.com" target="_blank">rogue87.dev@gmail.com</a>
+			<a href={`mailto:${email}`} target="_blank">{email}</a>
 		</div>
 		<div class="chat">
 			<!-- tabler--brand-matrix -->

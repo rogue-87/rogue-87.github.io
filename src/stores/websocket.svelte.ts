@@ -23,7 +23,7 @@ export class LanyardSocket extends WebSocket {
 		this.heartbeatInterval = heartbeatInterval ? heartbeatInterval : 30e3;
 	}
 
-	connect(): { disconnect: () => void } {
+	public connect() {
 		this.onopen = () => {
 			this.send(JSON.stringify({ op: 2, d: { subscribe_to_id: this.userId } }));
 
@@ -52,12 +52,10 @@ export class LanyardSocket extends WebSocket {
 		this.onclose = (event: CloseEvent) => {
 			console.log(`WebSocket connection closed: ${event.code} ${event.reason}`);
 		};
+	}
 
-		return {
-			disconnect: () => {
-				clearInterval(this.hearbeat);
-				this.close();
-			}
-		};
+	public disconnect() {
+		clearInterval(this.hearbeat);
+		this.close();
 	}
 }
