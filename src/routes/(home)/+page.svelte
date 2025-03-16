@@ -4,8 +4,9 @@
 	import gideon from "$lib/assets/images/gideon-animated.webp";
 	import { title, author, url, desc } from "$lib/site-config";
 
-	const socket = new LanyardSocket("369982847496355841");
 	$effect(() => {
+		const socket = new LanyardSocket("369982847496355841");
+
 		socket.connect();
 
 		return () => {
