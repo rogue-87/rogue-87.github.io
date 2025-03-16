@@ -1,6 +1,5 @@
 import { writable, type Writable } from "svelte/store";
 import type { Presence } from "$lib/types";
-import { dev } from "$app/environment";
 
 export const presenceData: Writable<Presence> = writable({} as Presence);
 
@@ -51,9 +50,7 @@ export class LanyardSocket extends WebSocket {
 		};
 
 		this.onclose = (event: CloseEvent) => {
-			if (dev) {
-				console.log(`WebSocket connection closed: ${event.code} ${event.reason}`);
-			}
+			console.log(`WebSocket connection closed: ${event.code} ${event.reason}`);
 		};
 	}
 
