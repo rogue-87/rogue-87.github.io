@@ -33,7 +33,7 @@
 		<img src={gideon} alt="gideon" width="125px" height="125px" />
 	</div>
 
-	<h1>Hi there 👋, my name is Ac!d.</h1>
+	<h1>Hi there 👋, my name is Rogue/Ac!d.</h1>
 
 	<p class="intro">
 		yet another cs student. trying to make something out of himself. will he succeed? probably not.
