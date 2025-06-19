@@ -9,7 +9,6 @@ export async function load({ params }: ServerLoadEvent) {
 			content: post.default,
 			meta: post.metadata
 		};
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	} catch (e) {
 		throw error(404, `Could not find ${params.slug}`);
 	}

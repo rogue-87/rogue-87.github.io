@@ -3,6 +3,7 @@
 	import { url, title } from "$lib/site-config";
 	import type { PageData } from "./$types";
 	import "$lib/style/abstracts/util.css";
+	import { render } from "svelte/server";
 
 	let { data }: { data: PageData } = $props();
 </script>
@@ -29,14 +30,14 @@
 			<p class="post-date">Published at {formatDate(data.meta.date)}</p>
 		</hgroup>
 
-		<div>
+		<div class="tags">
 			{#each data.meta.tags as tag}
-				<span>&num;{tag}</span>
+				<div class="tag">&num;{tag}</div>
 			{/each}
 		</div>
 
 		<div class="content">
-			{@render data.content()}
+			<data.content />
 		</div>
 	</article>
 </div>
@@ -61,5 +62,19 @@
 	.post-date {
 		text-align: end;
 		color: var(--fg-primary-dark);
+	}
+
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+		justify-content: center;
+	}
+
+	.tag {
+		padding: 8px;
+		border-radius: 16px;
+		background-color: var(--fg-accent);
+		margin-bottom: 16px;
 	}
 </style>

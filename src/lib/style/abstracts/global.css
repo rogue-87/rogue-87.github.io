@@ -1,6 +1,5 @@
 * {
 	font-family: "Quantico", Arial, Helvetica, system-ui;
-	font-optical-sizing: auto;
 	font-weight: 400;
 	font-style: normal;
 	padding: 0;
@@ -14,4 +13,9 @@ body {
 
 a {
 	color: var(--fg-accent);
+}
+
+li,
+ol {
+	list-style-position: inside;
 }

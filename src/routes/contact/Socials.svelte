@@ -20,7 +20,7 @@
 </script>
 
 <div class="socials-layout">
-	<a href="https://github.com/rogue-87" target="_blank" aria-label="github">
+	<a href="https://github.com/acid-32bit" target="_blank" aria-label="github">
 		<div class="social">
 			<!-- lineicons--github -->
 			<div class="social-inner">
