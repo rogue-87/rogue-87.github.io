@@ -20,7 +20,7 @@
 </script>
 
 <div class="socials-layout">
-	<a href="https://github.com/acid-32bit" target="_blank" aria-label="github">
+	<a href="https://github.com/rogue-87" target="_blank" aria-label="github">
 		<div class="social">
 			<!-- lineicons--github -->
 			<div class="social-inner">
@@ -40,7 +40,7 @@
 			<span>github</span>
 		</div>
 	</a>
-	<a href="https://gitlab.com/rogue-87" target="_blank" aria-label="gitlab">
+	<a href="https://gitlab.com/acid32" target="_blank" aria-label="gitlab">
 		<div class="social">
 			<!-- akar-icons--gitlab -->
 			<div class="social-inner">

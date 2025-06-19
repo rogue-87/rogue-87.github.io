@@ -16,7 +16,7 @@ once I'm satisfied with my website, I'll finally start working on some REEEEEAAA
 
 ## Who are you?
 
-Just a random webdev wannabe, but if you wanna know more about me, then check [whoami](https://acid-32bit.github.io/den/about/) page.
+Just a random webdev wannabe, but if you wanna know more about me, then check [whoami](https://rogue-87.github.io/den/about/) page.
 
 okay I really need to sleep, it's almost 3am lol.
 
