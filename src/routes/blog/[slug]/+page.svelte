@@ -3,7 +3,6 @@
 	import { url, title } from "$lib/site-config";
 	import type { PageData } from "./$types";
 	import "$lib/style/abstracts/util.css";
-	import { render } from "svelte/server";
 
 	let { data }: { data: PageData } = $props();
 </script>
