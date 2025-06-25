@@ -19,3 +19,8 @@ li,
 ol {
 	list-style-position: inside;
 }
+
+pre {
+	padding: 16px;
+	border-radius: 8px;
+}

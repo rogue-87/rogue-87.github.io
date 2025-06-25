@@ -1,34 +1,46 @@
 import { mdsvex, escapeSvelte } from "mdsvex";
 import { createHighlighter } from "shiki";
 import adapter from "@sveltejs/adapter-static";
-
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 
-const theme = "github-dark";
-const highlighter = await createHighlighter({
-	themes: [theme],
+const shikiConfig = {
+	/** @type {import('shiki').BundledTheme[]} */
+	themes: ["kanagawa-dragon"],
+	/** @type {import('shiki').BundledLanguage[]} */
 	langs: [
-		"javascript",
-		"typescript",
+		"c",
+		"c++",
 		"html",
-		"css",
-		"svelte",
+		"java",
+		"javascript",
 		"json",
-		"markdown",
-		"bash",
-		"shell",
+		"lua",
+		"luau",
+		"nix",
+		"rust",
 		"sh",
-		"java"
+		"svelte",
+		"toml",
+		"typescript"
 	]
-});
+};
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
 	extensions: [".md"],
-	highlight: async (code, lang = "text") => {
-		highlighter.loadLanguage("sh", "shell");
-		const html = escapeSvelte(highlighter.codeToHtml(code, { lang, theme }));
-		return `{@html \`${html}\` }`;
+	highlight: {
+		highlighter: async (code, lang = "text") => {
+			const highlighter = await createHighlighter({
+				themes: shikiConfig.themes,
+				langs: shikiConfig.langs
+			});
+
+			highlighter.loadLanguage(...shikiConfig.langs);
+			const html = escapeSvelte(
+				highlighter.codeToHtml(code, { lang, theme: shikiConfig.themes[0] })
+			);
+			return `{@html \`${html}\` }`;
+		}
 	}
 };
 
