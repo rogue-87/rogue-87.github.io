@@ -45,6 +45,7 @@
 
 <style>
 	h1 {
+    font-size: 2em;
 		font-weight: bold;
 		text-align: center;
 	}
