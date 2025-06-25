@@ -46,7 +46,9 @@ export class LanyardSocket extends WebSocket {
 		};
 
 		this.onerror = (event: Event) => {
-			console.error("WebSocket error:", event);
+			if (dev) {
+				console.error("WebSocket error:", event);
+			}
 			clearInterval(this.hearbeat);
 		};
 

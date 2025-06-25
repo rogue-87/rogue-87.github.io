@@ -53,6 +53,10 @@
 	hgroup {
 		background-color: var(--bg-primary-dark);
 		margin-bottom: 16px;
+
+		& h1 {
+			font-size: 1.75em;
+		}
 	}
 
 	.content {
