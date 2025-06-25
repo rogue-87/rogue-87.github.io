@@ -106,6 +106,7 @@
 		</div>
 	</a>
 
+	<h2 style="text-align: center;">Chat with me!</h2>
 	<div class="social" id="discord">
 		<!-- flowbite--discord -->
 		<div class="social-inner">
