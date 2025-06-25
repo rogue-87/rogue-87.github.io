@@ -36,8 +36,8 @@
 	<h1>Hi there 👋, my name is Rogue/Ac!d.</h1>
 
 	<p class="intro">
-		yet another cs student. trying to make something out of himself. will he succeed? probably not.
-		does he know? probably not. will he try? maybe...
+		Yet another CS student. Trying to make something out of himself. Hope you find something that
+		interests you here.
 	</p>
 
 	<Spotify />
