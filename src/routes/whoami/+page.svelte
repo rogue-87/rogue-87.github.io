@@ -11,11 +11,11 @@
 	<br />
 
 	<p>
-		My name is Ali. I'm a 21 years old guy who happens to know a thing or two about computers. My
-		first programming language was Java, though I didn't do much with it, mainly because that was
-		what my university offered. Later on, I learned JavaScript, and then Lua(because neovim, of
-		course). I kinda lost track of where I was when I fell into the Linux rabbit hole, but now I'm
-		back on track and resuming my journey into the unknown.
+		My name is Ali. I'm a {new Date().getFullYear() - 2003} years old guy who happens to know a thing
+		or two about computers. My first programming language was Java, though I didn't do much with it,
+		mainly because that was what my university offered. Later on, I learned JavaScript, and then Lua(because
+		neovim, of course). I kinda lost track of where I was when I fell into the Linux rabbit hole, but
+		now I'm back on track and resuming my journey into the unknown.
 	</p>
 
 	<br />
