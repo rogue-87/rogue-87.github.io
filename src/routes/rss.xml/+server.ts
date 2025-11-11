@@ -14,52 +14,52 @@ import { base } from "$app/paths";
 import { JSDOM } from "jsdom";
 
 export async function GET({ fetch }: ServerLoadEvent) {
-	const headers = {
-		"Cache-Control": "max-age=0, s-maxage=3600",
-		"Content-Type": "application/xml"
-	};
+    const headers = {
+        "Cache-Control": "max-age=0, s-maxage=3600",
+        "Content-Type": "application/xml",
+    };
 
-	return new Response(await generateXml(), { headers });
+    return new Response(await generateXml(), { headers });
 }
 
 async function getHtmlForPost(
-	postPath: string,
-	leadImageFilename?: string,
-	leadImageCaption?: string
+    postPath: string,
+    leadImageFilename?: string,
+    leadImageCaption?: string,
 ): Promise<string> {
-	const postMarkdownWithFrontmatter = await readFile(`src/posts/${postPath}.md`, "utf-8");
-	// prettier-ignore
-	const postMarkdown = postMarkdownWithFrontmatter
+    const postMarkdownWithFrontmatter = await readFile(`src/posts/${postPath}.md`, "utf-8");
+    // prettier-ignore
+    const postMarkdown = postMarkdownWithFrontmatter
 		.split("---")
 		.slice(2)
 		.join("---")
 		.trim();
 
-	const processedMarkdown = await unified()
-		.use(remarkParse)
-		.use(remarkRehype)
-		.use(rehypeStringify)
-		.use(remarkGfm)
-		.process(postMarkdown);
+    const processedMarkdown = await unified()
+        .use(remarkParse)
+        .use(remarkRehype)
+        .use(rehypeStringify)
+        .use(remarkGfm)
+        .process(postMarkdown);
 
-	const postHtml = processedMarkdown.toString().replaceAll("&#x3C;", "&amp;lt;");
+    const postHtml = processedMarkdown.toString().replaceAll("&#x3C;", "&amp;lt;");
 
-	const postDom = new JSDOM();
-	postDom.window.document.body.innerHTML = postHtml;
+    const postDom = new JSDOM();
+    postDom.window.document.body.innerHTML = postHtml;
 
-	inlineFootnotes(postDom);
+    inlineFootnotes(postDom);
 
-	if (leadImageFilename) {
-		const leadImage = postDom.window.document.createElement("img");
-		leadImage.src = `${base}/${leadImageFilename}`;
-		if (leadImageCaption) {
-			const caption = postDom.window.document.createElement("caption");
-			caption.textContent = leadImageCaption;
-			postDom.window.document.body.prepend(caption);
-		}
-	}
+    if (leadImageFilename) {
+        const leadImage = postDom.window.document.createElement("img");
+        leadImage.src = `${base}/${leadImageFilename}`;
+        if (leadImageCaption) {
+            const caption = postDom.window.document.createElement("caption");
+            caption.textContent = leadImageCaption;
+            postDom.window.document.body.prepend(caption);
+        }
+    }
 
-	return postDom.window.document.body.innerHTML;
+    return postDom.window.document.body.innerHTML;
 }
 
 // prettier-ignore
@@ -100,20 +100,20 @@ async function generateXml(): Promise<string> {
 }
 
 function inlineFootnotes(dom: JSDOM): void {
-	const footnoteLinkPrefix = "#user-content-fn-";
-	const prefixToRemove = "#user-content-";
-	const allLinks = Array.from(dom.window.document.getElementsByTagName("a"));
-	allLinks.forEach((link) => {
-		const href = link.getAttribute("href");
-		if (href?.startsWith(footnoteLinkPrefix)) {
-			const newFootnoteHref = "#" + href.slice(prefixToRemove.length);
-			const footnoteContentElem = dom.window.document.getElementById(
-				href.slice(1)
-			) as HTMLLIElement | null;
-			footnoteContentElem?.setAttribute("id", newFootnoteHref.slice(1));
-			link.setAttribute("href", newFootnoteHref);
-		}
-	});
+    const footnoteLinkPrefix = "#user-content-fn-";
+    const prefixToRemove = "#user-content-";
+    const allLinks = Array.from(dom.window.document.getElementsByTagName("a"));
+    allLinks.forEach((link) => {
+        const href = link.getAttribute("href");
+        if (href?.startsWith(footnoteLinkPrefix)) {
+            const newFootnoteHref = "#" + href.slice(prefixToRemove.length);
+            const footnoteContentElem = dom.window.document.getElementById(
+                href.slice(1),
+            ) as HTMLLIElement | null;
+            footnoteContentElem?.setAttribute("id", newFootnoteHref.slice(1));
+            link.setAttribute("href", newFootnoteHref);
+        }
+    });
 }
 
 // NOTE: Page Settings 󰒓

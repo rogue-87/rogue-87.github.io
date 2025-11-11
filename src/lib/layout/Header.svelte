@@ -1,65 +1,65 @@
 <script lang="ts">
-	import { page } from "$app/state";
+    import { page } from "$app/state";
 </script>
 
 <header>
-	<ul>
-		<li>
-			<a href="/" class:selected={page.url.pathname === "/"}>home</a>
-		</li>
-		<li>
-			<a href="/whoami" class:selected={page.url.pathname === "/whoami"}>whoami</a>
-		</li>
-		<li>
-			<a href="/blog" class:selected={page.url.pathname === "/blog"}>blog</a>
-		</li>
-		<li>
-			<a href="/contact" class:selected={page.url.pathname === "/contact"}>contact</a>
-		</li>
-	</ul>
+    <ul>
+        <li>
+            <a href="/" class:selected={page.url.pathname === "/"}>home</a>
+        </li>
+        <li>
+            <a href="/whoami" class:selected={page.url.pathname === "/whoami"}>whoami</a>
+        </li>
+        <li>
+            <a href="/blog" class:selected={page.url.pathname === "/blog"}>blog</a>
+        </li>
+        <li>
+            <a href="/contact" class:selected={page.url.pathname === "/contact"}>contact</a>
+        </li>
+    </ul>
 </header>
 
 <style>
-	header {
-		position: fixed;
-		width: 100%;
-		top: 0;
-		background-color: var(--bg-primary-dark);
-		border-bottom: 1px solid var(--fg-accent);
-	}
+    header {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        background-color: var(--bg-primary-dark);
+        border-bottom: 1px solid var(--fg-accent);
+    }
 
-	ul {
-		padding: 0;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		height: var(--header-height);
-		width: var(--global-width);
-		margin: 0 auto;
-	}
+    ul {
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: var(--header-height);
+        width: var(--global-width);
+        margin: 0 auto;
+    }
 
-	li {
-		list-style-type: none;
-	}
+    li {
+        list-style-type: none;
+    }
 
-	a {
-		color: var(--fg-primary);
-		text-decoration: none;
-		font-size: 1rem;
-		padding: 12px;
-		transition:
-			color 200ms,
-			background-color 200ms;
+    a {
+        color: var(--fg-primary);
+        text-decoration: none;
+        font-size: 1rem;
+        padding: 12px;
+        transition:
+            color 200ms,
+            background-color 200ms;
 
-		border-radius: 8px;
+        border-radius: 8px;
 
-		&:hover {
-			color: var(--fg-primary-light);
-			background-color: var(--bg-primary);
-		}
-	}
+        &:hover {
+            color: var(--fg-primary-light);
+            background-color: var(--bg-primary);
+        }
+    }
 
-	.selected {
-		background-color: var(--bg-primary-light);
-	}
+    .selected {
+        background-color: var(--bg-primary-light);
+    }
 </style>

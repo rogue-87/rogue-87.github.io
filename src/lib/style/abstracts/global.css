@@ -1,26 +1,26 @@
 * {
-	font-family: "Quantico", Arial, Helvetica, system-ui;
-	font-weight: 400;
-	font-style: normal;
-	padding: 0;
-	margin: 0;
+    font-family: "Quantico", Arial, Helvetica, system-ui;
+    font-weight: 400;
+    font-style: normal;
+    padding: 0;
+    margin: 0;
 }
 
 body {
-	color: var(--fg-primary);
-	background-color: var(--bg-primary);
+    color: var(--fg-primary);
+    background-color: var(--bg-primary);
 }
 
 a {
-	color: var(--fg-accent);
+    color: var(--fg-accent);
 }
 
 li,
 ol {
-	list-style-position: inside;
+    list-style-position: inside;
 }
 
 pre {
-	padding: 16px;
-	border-radius: 8px;
+    padding: 16px;
+    border-radius: 8px;
 }
