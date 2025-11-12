@@ -9,7 +9,7 @@
         let discord = document.getElementById("discord") as HTMLElement;
         let title = document.getElementById("discord-title") as HTMLElement;
 
-        discord.addEventListener("click", (event) => {
+        discord.addEventListener("click", () => {
             navigator.clipboard.writeText("rogue.sly");
             title.textContent = "copied to clipboard 👍";
             setTimeout(() => {
@@ -19,7 +19,7 @@
     });
 </script>
 
-<div class="socials-layout">
+<div class="socials-base">
     <a href="https://github.com/rogue-87" target="_blank" aria-label="github">
         <div class="social">
             <!-- lineicons--github -->
@@ -178,7 +178,7 @@
 </div>
 
 <style>
-    .socials-layout {
+    .socials-base {
         display: flex;
         flex-direction: column;
         justify-content: center;

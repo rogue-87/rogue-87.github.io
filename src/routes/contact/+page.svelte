@@ -6,24 +6,22 @@
     <title>contact</title>
 </svelte:head>
 
-<div class="layout">
+<div class="contacts">
     <Socials />
 </div>
 
 <style>
-    .layout {
+    .contacts {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: calc(100dvh - var(--header-height));
         width: var(--global-width);
+        min-height: calc(100dvh - var(--header-height));
     }
 
-    @media screen and (240px <= width <= 980px) {
-        .layout {
-            align-items: unset;
-            padding: 24px 0;
-            height: max-content;
+    @media screen and (240px <= width <= 980px) and (orientation: landscape) {
+        .contacts {
+            padding: 48px 0;
         }
     }
 </style>
