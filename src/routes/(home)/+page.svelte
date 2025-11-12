@@ -1,4 +1,5 @@
 <script>
+    import Spotify from "./Spotify.svelte";
     import { LanyardSocket } from "../../stores/websocket.svelte";
     import gideon from "$lib/assets/images/gideon-animated.webp";
     import { title, author, url, desc } from "$lib/site-config";
@@ -38,6 +39,8 @@
         Yet another CS student. Trying to make something out of himself. Hope you find something
         that interests you here.
     </p>
+
+    <Spotify />
 </section>
 
 <style>
