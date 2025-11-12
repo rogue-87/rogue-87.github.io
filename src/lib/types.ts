@@ -38,7 +38,7 @@ export type PostMetadata = {
     image?: string;
     caption?: string;
     date: string;
-    tags?: string[];
+    tags: string[];
     published: boolean;
 };
 

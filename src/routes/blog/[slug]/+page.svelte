@@ -16,7 +16,7 @@
     <meta property="og:type" content="article" />
     <meta property="og:url" content={url} />
     <meta property="og:title" content={data.meta.title} />
-    <meta property="og:description" content={data.meta.description} />
+    <meta property="og:description" content={data.meta.desc} />
     <meta property="og:site_name" content={title} />
     <meta property="og:image" content={data.meta.image} />
 </svelte:head>
@@ -36,7 +36,7 @@
         </div>
 
         <div class="content">
-            <data.content />
+            {@render data.content()}
         </div>
     </article>
 </div>
