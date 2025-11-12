@@ -1,5 +1,6 @@
 p {
-    margin-bottom: 8px;
+	font-size: 1.150em;
+	margin: 1rem 0;
 }
 
 h1,
@@ -8,5 +9,5 @@ h3,
 h4,
 h5,
 h6 {
-    margin-bottom: 4px;
+    margin: 0.75rem 0;
 }
